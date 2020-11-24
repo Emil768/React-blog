@@ -1,5 +1,4 @@
 .news {
-  margin-top: 30px;
   &__title {
     font-weight: 400;
     margin-bottom: 20px;
@@ -41,5 +40,9 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    &-empty {
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 }

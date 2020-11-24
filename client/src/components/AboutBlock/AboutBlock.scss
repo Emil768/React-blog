@@ -1,0 +1,14 @@
+.about {
+  text-align: center;
+  &__title {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 80px;
+  }
+  &__img {
+    width: 100%;
+    img {
+      max-width: 100%;
+    }
+  }
+}

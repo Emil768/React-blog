@@ -1,0 +1,45 @@
+.tags {
+  &__list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 8px 10px;
+    width: 100%;
+    border: 1px solid #c4c4c4;
+    outline: none;
+
+    &-item {
+      background: #c4c4c4;
+      border-radius: 3px;
+      padding: 5px 10px;
+      margin: 5px;
+      color: #fff;
+    }
+    &-btn {
+      cursor: pointer;
+      border: none;
+      background: #3333;
+      color: #ffff;
+      width: 15px;
+      height: 15px;
+      font-size: 12px;
+      border-radius: 50%;
+      display: inline-flex;
+      margin-left: 8px;
+      transform: rotate(45deg);
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      width: 100%;
+      min-width: 50px;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__input {
+    background: none;
+    flex-grow: 1;
+  }
+}

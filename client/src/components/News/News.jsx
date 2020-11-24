@@ -3,11 +3,13 @@ import "./News.scss";
 
 //components
 import NewsBlock from "../NewsBlock/NewsBlock";
+import NewsEmpty from "../NewsEmpty/NewsEmpty";
 //
 
-function News() {
+function News(props) {
+  console.log(props);
   return (
-    <section className="news">
+    <section className="news page-section">
       <div className="container">
         <h1 className="news__title">Все новости</h1>
         <ul className="news__list">
@@ -23,6 +25,7 @@ function News() {
           </li>
         </ul>
         <div className="news__content">
+          {/* <NewsEmpty /> */}
           <NewsBlock />
           <NewsBlock />
           <NewsBlock />
