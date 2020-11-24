@@ -1,0 +1,41 @@
+.footer {
+  border-top: 1px solid #c4c4c4;
+  text-align: center;
+  &__content {
+    padding: 20px 0;
+  }
+  &__title {
+    font-family: VT323, monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 48px;
+    margin-bottom: 20px;
+  }
+  &__social {
+    &-link {
+      display: inline-block;
+      margin-right: 20px;
+      svg {
+        transition: all ease 0.3s;
+      }
+      &.vk-link {
+        &:hover {
+          svg {
+            fill: #2787f5;
+          }
+        }
+      }
+      &.instagram-link {
+        &:hover {
+          svg {
+            fill: #9a5f98;
+          }
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
