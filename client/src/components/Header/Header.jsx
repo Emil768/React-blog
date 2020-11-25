@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./Header.scss";
 //lib
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
 // import history from "../../history";
 //
@@ -38,7 +38,10 @@ function Header() {
               </svg>
             </Link>
           </div>
-          <button className="mobile-menu" onClick={handlerActiveMenu}>
+          <button
+            className={activeMobileMenu ? "mobile-menu change" : "mobile-menu"}
+            onClick={handlerActiveMenu}
+          >
             <div className="mobile-menu-line"></div>
             <div className="mobile-menu-line"></div>
             <div className="mobile-menu-line"></div>
@@ -60,7 +63,7 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <MobileMenu state={activeMobileMenu} />
+          <MobileMenu state={activeMobileMenu} setState={setActiveMobileMenu} />
         </div>
       </div>
     </header>

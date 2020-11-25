@@ -45,15 +45,29 @@
   outline: none;
   border: none;
   display: none;
+  z-index: 3;
   cursor: pointer;
+
+  &.change {
+    .mobile-menu-line:first-child {
+      -webkit-transform: rotate(-45deg) translate(-7px, 6px);
+      transform: rotate(-45deg) translate(-7px, 6px);
+    }
+    .mobile-menu-line:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-line:last-child {
+      -webkit-transform: rotate(45deg) translate(-5px, -8px);
+      transform: rotate(45deg) translate(-5px, -8px);
+    }
+  }
+
   &-line {
     background: #2f3035;
     border-radius: 3px;
     margin-bottom: 6px;
     height: 3px;
-    &:last-child {
-      margin-bottom: 0;
-    }
+    transition: 0.4s;
   }
 }
 

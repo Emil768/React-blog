@@ -29,7 +29,6 @@ function InputTags() {
       removeTag(newTag.length - 1);
     }
   };
-  console.log(tags);
 
   return (
     <div className="tags">

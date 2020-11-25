@@ -4,6 +4,7 @@
     margin-bottom: 20px;
   }
   &__list {
+    z-index: -1;
     display: flex;
     padding-bottom: 10px;
     border-bottom: 1px solid #c4c4c4;
