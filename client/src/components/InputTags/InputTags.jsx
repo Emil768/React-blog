@@ -1,8 +1,9 @@
 import React, { useState, createRef } from "react";
 
 import "./InputTags.scss";
-function InputTags() {
+function InputTags({ setState }) {
   const [tags, setTags] = useState(["React", "Мысли"]);
+
   const inputRef = createRef();
 
   const removeTag = (e, index) => {
@@ -10,8 +11,6 @@ function InputTags() {
     tagsDel.splice(index, 1);
     setTags(tagsDel);
   };
-
-  console.log(tags);
 
   const addTag = (e) => {
     const newTag = tags;
@@ -47,7 +46,13 @@ function InputTags() {
           );
         })}
         <li className="tags__input">
-          <input type="text" ref={inputRef} onKeyDown={addTag} autoFocus />
+          <input
+            type="text"
+            ref={inputRef}
+            onKeyDown={addTag}
+            autoFocus
+            onChange={(e) => setState(e.target.value)}
+          />
         </li>
       </ul>
     </div>

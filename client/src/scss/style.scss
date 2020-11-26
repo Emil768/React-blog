@@ -46,7 +46,9 @@ p {
   padding: 0 15px;
   margin: 0 auto;
 }
-
+.container--fullpost {
+  max-width: 750px;
+}
 .page-section {
   margin: 40px 0;
   min-height: calc(100vh - 80px);

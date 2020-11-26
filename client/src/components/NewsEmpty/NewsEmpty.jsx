@@ -1,6 +1,7 @@
 import React from "react";
 import emptyGif from "../../img/empty.gif";
 import "./NewsEmpty.scss";
+import { Link } from "react-router-dom";
 function NewsEmpty() {
   return (
     <div className="news__empty ">
@@ -8,9 +9,9 @@ function NewsEmpty() {
       <div className="news__empty-img">
         <img src={emptyGif} alt="" />
       </div>
-      <a className="news__empty-btn" href="">
+      <Link to="/addnews" className="news__empty-btn">
         Добавить новость
-      </a>
+      </Link>
     </div>
   );
 }

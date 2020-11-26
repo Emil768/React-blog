@@ -15,6 +15,7 @@ function News(props) {
   }, []);
 
   console.log(news);
+
   return (
     <section className="news page-section">
       <div className="container">

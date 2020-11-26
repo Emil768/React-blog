@@ -1,7 +1,8 @@
 import React from "react";
 import "./NewsBlock.scss";
+import { Link } from "react-router-dom";
 import newsImg from "../../img/this-is-not-fine_cover.jpg";
-function NewsBlock({ title, img, text, tag }) {
+function NewsBlock({ id, title, img, text, tag }) {
   return (
     <div className="news__block">
       <div className="news__block-content">
@@ -14,9 +15,9 @@ function NewsBlock({ title, img, text, tag }) {
           <img src={img} alt="" />
         </div>
         <div className="news__block-text">{text}</div>
-        <a href="" className="news__block-btn">
+        <Link to={`/news/${id}`} className="news__block-btn">
           Читать далее
-        </a>
+        </Link>
       </div>
     </div>
   );

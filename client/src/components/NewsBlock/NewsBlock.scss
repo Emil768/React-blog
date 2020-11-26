@@ -29,6 +29,13 @@
     margin-right: 10px;
     font-size: 12px;
   }
+  &-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-indent: 1.5rem;
+  }
   &-img {
     width: 100%;
     img {
