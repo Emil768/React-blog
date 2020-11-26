@@ -25,6 +25,23 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/insert", (req, res) => {
+  const title = req.body.title;
+  const text = req.body.text;
+  const img = req.body.img;
+  const tag = req.body.tag;
+
+  console.log(req);
+  const sqlInsert = "insert into news(title,text,img,tag)values(?,?,?,?)";
+  db.query(sqlInsert, [title, text, img, tag], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.listen(3001, () => {
   console.log("Server is starting from 3001 port...");
 });
