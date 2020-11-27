@@ -42,6 +42,21 @@ app.post("/insert", (req, res) => {
   });
 });
 
+//category
+
+app.get("/category/:name", (req, res) => {
+  const tag = req.params.name;
+  console.log(req.params);
+
+  db.query("select* from news where tag=?", tag, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.listen(3001, () => {
   console.log("Server is starting from 3001 port...");
 });
