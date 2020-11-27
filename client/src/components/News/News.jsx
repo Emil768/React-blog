@@ -4,33 +4,51 @@ import "./News.scss";
 //components
 import NewsBlock from "../NewsBlock/NewsBlock";
 import NewsEmpty from "../NewsEmpty/NewsEmpty";
+import { Link } from "react-router-dom";
+//
+
+//lib
+import axios from "axios";
 //
 
 function News(props) {
   const [news, setNews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3001")
-      .then((res) => res.json())
-      .then((res) => setNews(res));
+    axios.get("http://localhost:3001").then((res) => setNews(res.data));
   }, []);
 
-  console.log(news);
+  //dublicate tag
+  const resultArray = [];
+  news.map((item) => {
+    if (
+      resultArray.find((object) => {
+        if (object.tag === item.tag) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    ) {
+    } else {
+      resultArray.push(item);
+    }
+  });
+  console.log(resultArray);
 
   return (
     <section className="news page-section">
       <div className="container">
         <h1 className="news__title">Все новости</h1>
         <ul className="news__list">
-          <li className="news__list-item">
-            <a href="" className="news__list-link">
-              Мысли
-            </a>
-          </li>
-          <li className="news__list-item">
-            <a href="" className="news__list-link">
-              ReactJs
-            </a>
-          </li>
+          {resultArray.map((item) => {
+            return (
+              <li className="news__list-item" key={item.id}>
+                <Link to={`/category/${item.tag}`} className="news__list-link">
+                  {item.tag}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
         <div
           className={

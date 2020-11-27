@@ -2,7 +2,7 @@ import React, { useState, createRef } from "react";
 
 import "./InputTags.scss";
 function InputTags({ setState }) {
-  const [tags, setTags] = useState(["React", "Мысли"]);
+  const [tags, setTags] = useState([]);
 
   const inputRef = createRef();
 
@@ -15,13 +15,15 @@ function InputTags({ setState }) {
   const addTag = (e) => {
     const newTag = tags;
     const value = e.target.value;
-
     if (e.key === "Enter" && value) {
+      console.log("yes");
+
       if (newTag.find((tag) => tag.toLowerCase() === value.toLowerCase())) {
         return alert("No dublicated!");
       }
       newTag.push(value);
       setTags(newTag);
+      console.log(tags);
       inputRef.current.value = null;
     } else if (e.key === "Escape" && !value) {
       console.log("yes");

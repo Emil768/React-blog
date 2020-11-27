@@ -22,12 +22,14 @@ function AddNews() {
       })
       .then(() => alert("succesfully!"));
   };
+
+  console.log(tag);
   return (
     <section className="addNews page-section">
       <div className="container">
         <h1 className="addNews__title">Добавить новость</h1>
         <div className="addNews__content">
-          <form className="addNews__form">
+          <form className="addNews__form" onSubmit={(e) => e.preventDefault()}>
             <input
               className="addNews__form-title"
               type="text"

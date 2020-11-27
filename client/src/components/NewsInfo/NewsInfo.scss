@@ -19,9 +19,16 @@
     text-indent: 1.5rem;
     line-height: 32px;
     font-size: 20px;
+    white-space: pre-wrap;
   }
   &__date {
     margin-right: 20px;
+  }
+  &__tag {
+    color: #40b0ee;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 

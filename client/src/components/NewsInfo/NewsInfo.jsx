@@ -3,9 +3,15 @@ import React, { useEffect, useState } from "react";
 import "./NewsInfo.scss";
 //components
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
+import { Link } from "react-router-dom";
+//
+//lib
+import * as moment from "moment/moment";
+import "moment/locale/ru";
 //
 
 function NewsInfo(props) {
+  moment.locale("ru");
   const id = props.match.params.id;
   const [newsInfo, setNewsInfo] = useState([]);
   console.log(id);
@@ -14,8 +20,7 @@ function NewsInfo(props) {
       .then((res) => res.json())
       .then((res) => setNewsInfo(res.find((item) => item.id == id)));
   }, [id]);
-  console.log(newsInfo);
-  const { title, text, img, tag } = newsInfo;
+  const { title, text, img, tag, date } = newsInfo;
 
   return (
     <section className="news-info page-section">
@@ -24,10 +29,13 @@ function NewsInfo(props) {
         <h1 className="news-info__title">{title}</h1>
         <div className="news-info__top">
           <div className="news-info__date">
-            Дата: {new Date().toLocaleString()}
+            Дата: {moment(date).format("L")}
           </div>
           <div className="news-info__category">
-            Категория:<span>{tag}</span>
+            Категория:
+            <Link to={`/category/${tag}`} className="news-info__tag">
+              {tag}
+            </Link>
           </div>
         </div>
         <div className="news-info__content">

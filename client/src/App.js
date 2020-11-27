@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import AboutBlock from "./components/AboutBlock/AboutBlock";
 import AddNews from "./components/AddNews/AddNews";
 import NewsInfo from "./components/NewsInfo/NewsInfo";
+import Category from "./components/Category/Caregory";
 //
 //lib
 import { Route, Switch } from "react-router-dom";
@@ -20,6 +21,7 @@ function App(props) {
         <Route path="/about" component={AboutBlock} />
         <Route path="/addnews" component={AddNews} />
         <Route path="/news/:id" component={NewsInfo} />
+        <Route path="/category/:name" component={Category} />
       </Switch>
       <Footer />
     </div>
