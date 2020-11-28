@@ -6,14 +6,14 @@ import "./Category.scss";
 import NewsBlock from "../NewsBlock/NewsBlock";
 import NewsEmpty from "../NewsEmpty/NewsEmpty";
 //
-function Caregory(props) {
+function Category(props) {
   const category = props.match.params.name;
   const [categoryName, setCategoryName] = useState([]);
   useEffect(() => {
     axios
       .get(`http://localhost:3001/category/${category}`)
       .then((res) => setCategoryName(res.data));
-  }, []);
+  }, [category]);
 
   console.log(categoryName);
   return (
@@ -40,4 +40,4 @@ function Caregory(props) {
   );
 }
 
-export default Caregory;
+export default Category;

@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import AboutBlock from "./components/AboutBlock/AboutBlock";
 import AddNews from "./components/AddNews/AddNews";
 import NewsInfo from "./components/NewsInfo/NewsInfo";
-import Category from "./components/Category/Caregory";
+import Category from "./components/Category/Category";
 //
 //lib
 import { Route, Switch } from "react-router-dom";

@@ -33,6 +33,20 @@
           }
         }
       }
+      &.telegram-link {
+        &:hover {
+          svg {
+            fill: #0088cc;
+          }
+        }
+      }
+      &.github-link {
+        &:hover {
+          svg {
+            fill: #525696;
+          }
+        }
+      }
       &:last-child {
         margin-right: 0;
       }

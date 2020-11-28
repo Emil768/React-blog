@@ -1,33 +1,24 @@
 import React, { useState, createRef } from "react";
 
 import "./InputTags.scss";
+
 function InputTags({ setState }) {
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(["React", "Vue"]);
 
   const inputRef = createRef();
 
-  const removeTag = (e, index) => {
-    const tagsDel = tags.slice(0);
-    tagsDel.splice(index, 1);
-    setTags(tagsDel);
+  const removeTag = (i) => {
+    setTags(tags.filter((tag, index) => index !== i));
   };
 
   const addTag = (e) => {
-    const newTag = tags;
     const value = e.target.value;
     if (e.key === "Enter" && value) {
-      console.log("yes");
-
-      if (newTag.find((tag) => tag.toLowerCase() === value.toLowerCase())) {
-        return alert("No dublicated!");
-      }
-      newTag.push(value);
-      setTags(newTag);
-      console.log(tags);
+      setTags((state) => [...state, value]);
       inputRef.current.value = null;
-    } else if (e.key === "Escape" && !value) {
+    } else if (e.keyCode === "27" && !value) {
       console.log("yes");
-      removeTag(newTag.length - 1);
+      // removeTag(newTag.length - 1);
     }
   };
 
@@ -40,7 +31,7 @@ function InputTags({ setState }) {
               {tag}{" "}
               <button
                 className="tags__list-btn"
-                onClick={(e) => removeTag(e, index)}
+                onClick={() => removeTag(index)}
               >
                 +
               </button>

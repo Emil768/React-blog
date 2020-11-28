@@ -33,7 +33,6 @@ function News(props) {
       resultArray.push(item);
     }
   });
-  console.log(resultArray);
 
   return (
     <section className="news page-section">

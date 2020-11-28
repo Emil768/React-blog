@@ -13,14 +13,18 @@ function AddNews() {
   const [tag, setTag] = useState("");
 
   const addNewNews = () => {
-    axios
-      .post("http://localhost:3001/insert", {
-        title: title,
-        text: text,
-        img: img,
-        tag: tag,
-      })
-      .then(() => alert("succesfully!"));
+    if (title.trim() !== "" || text.trim() !== "") {
+      axios
+        .post("http://localhost:3001/insert", {
+          title: title,
+          text: text,
+          img: img,
+          tag: tag,
+        })
+        .then(() => alert("succesfully!"));
+    } else {
+      alert("Введите данные!");
+    }
   };
 
   console.log(tag);
