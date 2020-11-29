@@ -8,7 +8,7 @@
     display: flex;
     padding-bottom: 10px;
     border-bottom: 1px solid #c4c4c4;
-    margin-bottom: 50px;
+
     &-item {
       margin-right: 40px;
       &:hover {
@@ -44,6 +44,22 @@
     &-empty {
       flex-direction: column;
       justify-content: space-between;
+    }
+  }
+  &-wrapper {
+    margin-bottom: 50px;
+  }
+}
+
+//media
+
+@media (max-width: 600px) {
+  .news {
+    &-wrapper {
+      overflow-x: scroll;
+    }
+    .mobile-oveflow {
+      width: 700px;
     }
   }
 }

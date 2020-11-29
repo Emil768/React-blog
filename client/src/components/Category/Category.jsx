@@ -15,7 +15,6 @@ function Category(props) {
       .then((res) => setCategoryName(res.data));
   }, [category]);
 
-  console.log(categoryName);
   return (
     <section className="news page-section">
       <div className="container">

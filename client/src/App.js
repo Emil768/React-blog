@@ -3,7 +3,7 @@ import "./scss/style.scss";
 import Header from "./components/Header/Header";
 import News from "./components/News/News";
 import Footer from "./components/Footer/Footer";
-import AboutBlock from "./components/AboutBlock/AboutBlock";
+import About from "./components/About/About";
 import AddNews from "./components/AddNews/AddNews";
 import NewsInfo from "./components/NewsInfo/NewsInfo";
 import Category from "./components/Category/Category";
@@ -18,7 +18,7 @@ function App(props) {
       <Header />
       <Switch>
         <Route exact path="/" component={News} />
-        <Route path="/about" component={AboutBlock} />
+        <Route path="/about" component={About} />
         <Route path="/addnews" component={AddNews} />
         <Route path="/news/:id" component={NewsInfo} />
         <Route path="/category/:name" component={Category} />

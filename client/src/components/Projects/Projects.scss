@@ -1,0 +1,11 @@
+.projects {
+  &.page-section {
+    margin: 0;
+  }
+  text-align: center;
+  &__title {
+    font-family: PT Mono, PT Serif, serif, Helvetica, system-ui;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+}

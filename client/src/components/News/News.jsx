@@ -4,6 +4,7 @@ import "./News.scss";
 //components
 import NewsBlock from "../NewsBlock/NewsBlock";
 import NewsEmpty from "../NewsEmpty/NewsEmpty";
+import Pagination from "../Pagination/Pagination";
 import { Link } from "react-router-dom";
 //
 
@@ -19,7 +20,7 @@ function News(props) {
 
   //dublicate tag
   const resultArray = [];
-  news.map((item) => {
+  news.forEach((item) => {
     if (
       resultArray.find((object) => {
         if (object.tag === item.tag) {
@@ -38,17 +39,22 @@ function News(props) {
     <section className="news page-section">
       <div className="container">
         <h1 className="news__title">Все новости</h1>
-        <ul className="news__list">
-          {resultArray.map((item) => {
-            return (
-              <li className="news__list-item" key={item.id}>
-                <Link to={`/category/${item.tag}`} className="news__list-link">
-                  {item.tag}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="news-wrapper">
+          <ul className="news__list mobile-oveflow">
+            {resultArray.map((item) => {
+              return (
+                <li className="news__list-item" key={item.id}>
+                  <Link
+                    to={`/category/${item.tag}`}
+                    className="news__list-link"
+                  >
+                    {item.tag}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <div
           className={
             news.length ? "news__content" : "news__content news__content-empty"
