@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Skills.scss";
 
 import htmlSvg from "../../img/iconfinder_50-html5_104453.svg";
@@ -9,14 +9,23 @@ import reactSvg from "../../img/iconfinder_react_1296845.svg";
 import sassSvg from "../../img/iconfinder_sass_1297046.svg";
 import nodeSvg from "../../img/iconfinder_node_3069651.svg";
 import mysqlSvg from "../../img/iconfinder_Database_copy_Amazon_RDS_MySQL_DB_Instance_259318.svg";
+import reactNativeSvg from "../../img/react-native.png";
+
+//lib
+import Aos from "aos";
+import "aos/dist/aos.css";
+//
 
 function Skills() {
   const skillsTech = {
     frontend: [htmlSvg, jsSvg, cssSvg, reactSvg, sassSvg],
     backend: [nodeSvg, mysqlSvg],
   };
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
-    <section className="skills page-section">
+    <section data-aos="fade-up" className="skills page-section">
       <div className="container">
         <h1 className="skills__title">My skills</h1>
         <div className="skills__content">
@@ -25,17 +34,25 @@ function Skills() {
             have been doing programming for a year now. During this time I got
             acquainted with such technologies as:
           </p>
-          <div className="skills__content-frontend">
+          <div className="skills__content-block skills__content-frontend ">
             <h3 className="skills__content-title">Frontend</h3>
             {skillsTech.frontend.map((skill, index) => {
               return <img src={skill} alt="" key={index} />;
             })}
           </div>
-          <div className="skills__content-backend">
+          <div className="skills__content-block skills__content-backend">
             <h3 className="skills__content-title">Backend</h3>
             {skillsTech.backend.map((skill, index) => {
               return <img src={skill} alt="" key={index} />;
             })}
+          </div>
+          <div className="skills__content-block skills__content-other">
+            <h3 className="skills__content-title">Other skills</h3>
+            <img src={githubSvg} alt="" />
+          </div>
+          <div className="skills__content-studing">
+            <h3 className="skills__content-title">In studing</h3>
+            <img src={reactNativeSvg} alt="" />
           </div>
         </div>
       </div>
