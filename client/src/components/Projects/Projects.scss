@@ -1,6 +1,6 @@
 .projects {
   &.page-section {
-    margin: 0;
+    margin-bottom: 40px;
   }
   text-align: center;
   &__title {
@@ -15,23 +15,81 @@
   &__content {
     display: flex;
 
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
-    &-block {
-      width: 400px;
-      border: 1px solid #c4c4c4;
-      border-radius: 5px;
-      text-align: left;
-      padding: 20px;
+  }
+  &__block {
+    font-family: PT Mono, PT Serif, serif, Helvetica, system-ui;
+    text-align: center;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    transition: all ease 0.3s;
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+    &:hover {
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    }
+    &-img {
+      width: 340px;
       margin-bottom: 20px;
-      margin-right: 20px;
-      transition: all ease 0.3s;
-      &:nth-child(even) {
-        margin-right: 0;
+      img {
+        max-width: 100%;
       }
+    }
+
+    &-title {
+      margin-bottom: 20px;
+    }
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    &-link {
+      display: inline-block;
+      margin-right: 10px;
+      img {
+        width: 40px;
+        height: 40px;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
+    }
+    &-info {
+      margin-bottom: 20px;
+    }
+  }
+  &__stack {
+    display: flex;
+    justify-content: space-between;
+  }
+  .stack {
+    img {
+      width: 50px;
+      height: 50px;
+      transition: all 0.2s ease-in-out;
       &:hover {
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        transform: scale(1.5);
       }
+    }
+    &__title {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    &__frontend {
+      margin-bottom: 20px;
+    }
+    &__backend {
+      margin-left: 20px;
     }
   }
 }
@@ -83,6 +141,16 @@
     &__content {
       &-block {
         margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .projects {
+    &__block {
+      &-img {
+        width: 100%;
       }
     }
   }
