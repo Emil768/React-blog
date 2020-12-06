@@ -14,6 +14,20 @@ function Header() {
     setActiveMobileMenu(!activeMobileMenu);
   };
 
+  if (activeMobileMenu) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
+
+  let mediaQueryList = window.matchMedia("(min-width: 560px)");
+  function screenTest(e) {
+    if (e.matches) {
+      setActiveMobileMenu(false);
+    }
+  }
+  mediaQueryList.addListener(screenTest);
+
   return (
     <header className="header">
       <div className="container">

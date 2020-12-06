@@ -2,11 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MobileMenu.scss";
 function MobileMenu({ state, setState }) {
-  if (state) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "visible";
-  }
   const hideMobileMenu = () => {
     setState(false);
   };
