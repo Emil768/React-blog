@@ -14,6 +14,9 @@ import axios from "axios";
 
 function News(props) {
   const [news, setNews] = useState([]);
+  const [currentPage,setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
+
   useEffect(() => {
     axios.get("http://localhost:3001").then((res) => setNews(res.data));
   }, []);
@@ -34,6 +37,13 @@ function News(props) {
       resultArray.push(item);
     }
   });
+
+  //Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentsPosts = news.slice(indexOfFirstPost,indexOfLastPost);
+
+  const paginate = pageNumber =>setCurrentPage(pageNumber)
 
   return (
     <section className="news page-section">
@@ -61,13 +71,14 @@ function News(props) {
           }
         >
           {news.length ? (
-            news.map((item, index) => {
+            currentsPosts.map((item, index) => {
               return <NewsBlock {...item} key={index} />;
             })
           ) : (
             <NewsEmpty />
           )}
         </div>
+        <Pagination postsPerPage={postsPerPage} totalPosts={news.length} paginate = {paginate}/>
       </div>
     </section>
   );
