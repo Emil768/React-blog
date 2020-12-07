@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Projects.scss";
 
-import comixProject from "../../img/react-comix.png";
+import comixProject from "../../img/react-comix.PNG";
 import xiaomiNotes from "../../img/Xiaomi-Notes (1).png";
 import internetShop from "../../img/internet-shop.PNG";
 

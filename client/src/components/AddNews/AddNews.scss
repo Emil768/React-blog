@@ -1,61 +1,63 @@
 .addNews {
-  margin-bottom: 40px;
-  &__content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  text-align: center;
-  &__title {
-    font-weight: 400;
-    font-size: 30px;
-    margin-bottom: 20px;
-  }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    &-title {
-      margin-bottom: 20px;
-      padding: 8px 10px;
-      border: none;
-      outline: none;
-      border: 1px solid #c4c4c4;
-      &:focus {
-        border-color: #40b0ee;
-      }
+    &.page-section {
+        min-height: auto;
     }
-    &-text {
-      border: none;
-      outline: none;
-      border: 1px solid #c4c4c4;
-
-      margin-bottom: 20px;
-      &:focus {
-        border-color: #40b0ee;
-      }
+    margin-bottom: 40px;
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
     }
-    &-text {
-      padding: 10px;
-      font-family: "Roboto", sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      resize: none;
+    text-align: center;
+    &__title {
+        font-weight: 400;
+        font-size: 30px;
+        margin-bottom: 20px;
     }
-    &-url {
-      margin-bottom: 20px;
-      padding: 8px 10px;
-      border: none;
-      outline: none;
-      border: 1px solid #c4c4c4;
-      &:focus {
-        border-color: #40b0ee;
-      }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        &-title {
+            margin-bottom: 20px;
+            padding: 8px 10px;
+            border: none;
+            outline: none;
+            border: 1px solid #c4c4c4;
+            &:focus {
+                border-color: #40b0ee;
+            }
+        }
+        &-text {
+            border: none;
+            outline: none;
+            border: 1px solid #c4c4c4;
+            margin-bottom: 20px;
+            &:focus {
+                border-color: #40b0ee;
+            }
+        }
+        &-text {
+            padding: 10px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            resize: none;
+        }
+        &-url {
+            margin-bottom: 20px;
+            padding: 8px 10px;
+            border: none;
+            outline: none;
+            border: 1px solid #c4c4c4;
+            &:focus {
+                border-color: #40b0ee;
+            }
+        }
+        &-btn {
+            border: none;
+            outline: none;
+            margin-left: auto;
+            padding: 10px 40px;
+            cursor: pointer;
+        }
     }
-    &-btn {
-      border: none;
-      outline: none;
-      margin-left: auto;
-      padding: 10px 40px;
-      cursor: pointer;
-    }
-  }
 }
