@@ -1,65 +1,69 @@
 .news {
-  &__title {
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-  &__list {
-    z-index: -1;
-    display: flex;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #c4c4c4;
-
-    &-item {
-      margin-right: 40px;
-      &:hover {
-        a {
-          color: #40b0ee;
+    &__title {
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+    &__list {
+        z-index: -1;
+        display: flex;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #c4c4c4;
+        &-item {
+            margin-right: 40px;
+            &:hover {
+                a {
+                    color: #40b0ee;
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+            }
         }
-      }
-      &:last-child {
-        margin-right: 0;
-      }
+        &-link {
+            position: relative;
+            &::before {
+                content: "";
+                width: 0;
+                height: 2px;
+                position: absolute;
+                background-color: #40b0ee;
+                left: auto;
+                bottom: -11px;
+                transition: width 0.3s;
+            }
+            &:hover::before {
+                width: 100%;
+            }
+        }
     }
-    &-link {
-      position: relative;
-      &::before {
-        content: "";
-        width: 0;
-        height: 2px;
-        position: absolute;
-        background-color: #40b0ee;
-        left: auto;
-        bottom: -11px;
-        transition: width 0.3s;
-      }
-      &:hover::before {
-        width: 100%;
-      }
+    &__content {
+        width: 60%;
+        &-empty {
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
-  }
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    &-empty {
-      flex-direction: column;
-      justify-content: space-between;
+    &-wrapper {
+        margin-bottom: 50px;
     }
-  }
-  &-wrapper {
-    margin-bottom: 50px;
-  }
 }
 
 //media
+@media (max-width: 800px) {
+    .news {
+        &__content {
+            width: 100%;
+        }
+    }
+}
 
 @media (max-width: 600px) {
-  .news {
-    &-wrapper {
-      overflow-x: scroll;
+    .news {
+        &-wrapper {
+            overflow-x: scroll;
+        }
+        .mobile-oveflow {
+            width: 700px;
+        }
     }
-    .mobile-oveflow {
-      width: 700px;
-    }
-  }
 }

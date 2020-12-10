@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Projects.scss";
 
-import comixProject from "../../img/react-comix.PNG";
+import comixProject from "../../img/comix-project.png";
 import xiaomiNotes from "../../img/Xiaomi-Notes (1).png";
 import internetShop from "../../img/internet-shop.PNG";
 
@@ -12,6 +12,7 @@ import heroku from "../../img/heroku.png";
 import github from "../../img/iconfinder_github_1220319.svg";
 import gitlab from "../../img/gitlab.png";
 import dowload from "../../img/iconfinder_file-apk-format-type_5386891.svg";
+import netlify from "../../img/netlify.png"
 
 //img
 import reactSvg from "../../img/iconfinder_react_1296845.svg";
@@ -86,7 +87,12 @@ function Projects() {
           img: github,
           link: "https://github.com/Zandess/react-internet-shop",
         },
+        {
+          img: netlify,
+          link: "https://laughing-hypatia-17bc7a.netlify.app/",
+        },
       ],
+
     },
   ];
 
@@ -241,7 +247,14 @@ function Projects() {
                               : "projects__mobile-img "
                           }
                         >
-                          <img src={item.img} alt={item.title} />
+                          <div style={{
+                             backgroundImage:`url("${item.img}")`,
+                             backgroundPosition:"top",
+                             backgroundRepeat:"no-repeat",
+                             backgroundSize:"cover",
+                             width:"100%",
+                             height:"300px"
+                          }}></div>
                         </div>
                       </div>
                     </div>

@@ -9,6 +9,14 @@ import "moment/locale/ru";
 
 function NewsBlock({ id, title, img, text, tag, date }) {
   moment.locale("ru");
+ const imgStyles = {
+  backgroundImage: `url(${img}) `,
+  width: "100%",
+  minHeight:"200px",
+  backgroundSize: "cover",
+  backgroundPosition:" center",
+  backgroundRepeat:" no-repeat"
+ }
   return (
     <div className="news__block">
       <div className="news__block-content">
@@ -17,8 +25,7 @@ function NewsBlock({ id, title, img, text, tag, date }) {
         <div className="news__block-tags">
           <span className="news__block-tag">{tag}</span>
         </div>
-        <div className="news__block-img">
-          <img src={img} alt="" />
+        <div className="news__block-img" style={imgStyles}>
         </div>
         <div className="news__block-text">{text}</div>
         <Link to={`/news/${id}`} className="news__block-btn">
@@ -28,5 +35,9 @@ function NewsBlock({ id, title, img, text, tag, date }) {
     </div>
   );
 }
+
+
+
+
 
 export default NewsBlock;

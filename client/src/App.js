@@ -25,6 +25,7 @@ function App(props) {
         <Route path="/addnews" component={AddNews} />
         <Route path="/news/:id" component={NewsInfo} />
         <Route path="/category/:name" component={Category} />
+        <Route path = "/:page_number"/>
       </Switch>
       <Footer />
     </div>

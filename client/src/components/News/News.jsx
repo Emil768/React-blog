@@ -15,7 +15,7 @@ import axios from "axios";
 function News(props) {
   const [news, setNews] = useState([]);
   const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(4);
 
   useEffect(() => {
     axios.get("http://localhost:3001").then((res) => setNews(res.data));
