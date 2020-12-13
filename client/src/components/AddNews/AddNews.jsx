@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import "./AddNews.scss";
 import "../InputTags/InputTags";
+
+//components
 import InputTags from "../InputTags/InputTags";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 //lib
 import axios from "axios";
@@ -11,7 +17,7 @@ function AddNews() {
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
   const [tag, setTag] = useState("");
-
+  console.log(text);
   const addNewNews = () => {
     if (title.trim() !== "" || text.trim() !== "") {
       axios
@@ -27,28 +33,26 @@ function AddNews() {
     }
   };
 
-  console.log(tag);
+  console.log(text);
+
+  const handleChange = (value) => {
+    setText(value);
+  };
+
   return (
     <section className="addNews page-section">
       <div className="container">
         <h1 className="addNews__title">Добавить новость</h1>
         <div className="addNews__content">
-          <form className="addNews__form" onSubmit={(e) => e.preventDefault()}>
+          <form className="addNews__form">
             <input
               className="addNews__form-title"
               type="text"
               placeholder="Введите название"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <textarea
-              className="addNews__form-text"
-              name=""
-              id=""
-              cols="30"
-              rows="30"
-              placeholder="Введите текст"
-              onChange={(e) => setText(e.target.value)}
-            ></textarea>
+            <ReactQuill value={text} onChange={handleChange} />
+
             <InputTags setState={setTag} />
             <input
               className="addNews__form-url"

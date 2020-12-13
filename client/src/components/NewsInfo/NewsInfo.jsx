@@ -4,6 +4,7 @@ import "./NewsInfo.scss";
 //components
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 //
 //lib
 import * as moment from "moment/moment";
@@ -21,7 +22,6 @@ function NewsInfo(props) {
       .then((res) => setNewsInfo(res.find((item) => item.id == id)));
   }, [id]);
   const { title, text, img, tag, date } = newsInfo;
-
   return (
     <section className="news-info page-section">
       <div className="container container--fullpost">
@@ -42,9 +42,7 @@ function NewsInfo(props) {
           <div className="news-info__img">
             <img src={img} alt="" />
           </div>
-          <div className="news-info__text">
-            <p>{text}</p>
-          </div>
+          <div className="news-info__text">{text && parse(text)}</div>
         </div>
       </div>
     </section>
