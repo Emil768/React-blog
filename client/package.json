@@ -3,12 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ckeditor/ckeditor5-adapter-ckfinder": "^24.0.0",
-    "@ckeditor/ckeditor5-build-classic": "^24.0.0",
-    "@ckeditor/ckeditor5-react": "^3.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.13",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
@@ -25,8 +19,6 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
-    "react-slick": "^0.27.13",
-    "slick-carousel": "^1.8.1",
     "swiper": "^6.3.5",
     "web-vitals": "^0.2.4"
   },

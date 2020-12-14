@@ -35,14 +35,6 @@
         border-color: #40b0ee;
       }
     }
-    &-text {
-      padding: 10px;
-      font-family: "Roboto", sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 28px;
-      resize: none;
-    }
     &-url {
       margin-bottom: 20px;
       padding: 8px 10px;
@@ -63,6 +55,13 @@
   }
 }
 
-.ql-container.ql-snow {
-  min-height: 800px;
+.ql-editor {
+  max-height: 600px;
+  min-height: 600px;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  resize: none;
 }

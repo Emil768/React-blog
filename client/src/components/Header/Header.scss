@@ -50,15 +50,15 @@
 
   &.change {
     .mobile-menu-line:first-child {
-      -webkit-transform: rotate(-45deg) translate(-7px, 6px);
-      transform: rotate(-45deg) translate(-7px, 6px);
+      -webkit-transform: rotate(-45deg) translate(-7px, 8px);
+      transform: rotate(-45deg) translate(-7px, 8px);
     }
     .mobile-menu-line:nth-child(2) {
       opacity: 0;
     }
     .mobile-menu-line:last-child {
-      -webkit-transform: rotate(45deg) translate(-5px, -8px);
-      transform: rotate(45deg) translate(-5px, -8px);
+      -webkit-transform: rotate(45deg) translate(-4px, -7px);
+      transform: rotate(45deg) translate(-4px, -7px);
     }
   }
 

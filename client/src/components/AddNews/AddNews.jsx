@@ -4,8 +4,6 @@ import "../InputTags/InputTags";
 
 //components
 import InputTags from "../InputTags/InputTags";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -17,7 +15,6 @@ function AddNews() {
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
   const [tag, setTag] = useState("");
-  console.log(text);
   const addNewNews = () => {
     if (title.trim() !== "" || text.trim() !== "") {
       axios
@@ -33,11 +30,23 @@ function AddNews() {
     }
   };
 
-  console.log(text);
-
-  const handleChange = (value) => {
-    setText(value);
+  const handleChange = (text) => {
+    setText(text);
   };
+  const toolbarOptions = [
+    ["bold", "italic", "underline", "strike"], // toggled buttons
+    ["blockquote", "code-block"],
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [
+      { align: null },
+      { align: "center" },
+      { align: "right" },
+      { align: "justify" },
+    ],
+    [{ size: ["small", false, "large", "huge"] }],
+    ["link", "image", "video", "formula"],
+  ];
 
   return (
     <section className="addNews page-section">
@@ -51,8 +60,14 @@ function AddNews() {
               placeholder="Введите название"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <ReactQuill value={text} onChange={handleChange} />
 
+            <ReactQuill
+              value={text}
+              onChange={handleChange}
+              modules={{
+                toolbar: toolbarOptions,
+              }}
+            />
             <InputTags setState={setTag} />
             <input
               className="addNews__form-url"
