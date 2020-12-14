@@ -7,7 +7,7 @@
     z-index: -1;
     display: flex;
     padding-bottom: 10px;
-    border-bottom: 1px solid #c4c4c4;
+    border-bottom: 1px solid #eee;
     &-item {
       margin-right: 40px;
       &:hover {
@@ -37,7 +37,14 @@
     }
   }
   &__content {
-    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &-blocks {
+      display: flex;
+      width: 60%;
+      flex-wrap: wrap;
+    }
     &-empty {
       flex-direction: column;
       justify-content: space-between;
@@ -50,10 +57,12 @@
 }
 
 //media
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .news {
     &__content {
-      width: 100%;
+      &-blocks {
+        width: 100%;
+      }
     }
   }
 }

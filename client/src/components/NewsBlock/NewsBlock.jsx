@@ -5,7 +5,7 @@ import "./NewsBlock.scss";
 import { Link } from "react-router-dom";
 import * as moment from "moment/moment";
 import "moment/locale/ru";
-import parse from "html-react-parser";
+
 //
 
 function NewsBlock({ id, title, img, text, tag, date }) {
@@ -17,17 +17,24 @@ function NewsBlock({ id, title, img, text, tag, date }) {
     backgroundSize: "cover",
     backgroundPosition: " center",
     backgroundRepeat: " no-repeat",
+    borderTopLeftRadius: "10px",
+    borderTopRightRadius: "10px",
   };
+
+  const resultText = text.match(/<p>(.*?)<\/p>/).map(function (val) {
+    return val.replace(/<\/?p>/g, "");
+  });
+
   return (
     <div className="news__block">
+      <div className="news__block-img" style={imgStyles}></div>
       <div className="news__block-content">
         <div className="news__block-date">{moment(date).calendar()}</div>
         <h2 className="news__block-title">{title}</h2>
         <div className="news__block-tags">
           <span className="news__block-tag">{tag}</span>
         </div>
-        <div className="news__block-img" style={imgStyles}></div>
-        <div className="news__block-text">{text && parse(text)}</div>
+        <div className="news__block-text">{resultText}</div>
         <Link to={`/news/${id}`} className="news__block-btn">
           Читать далее
         </Link>

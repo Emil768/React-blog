@@ -19,20 +19,25 @@ function Category(props) {
     <section className="news page-section">
       <div className="container">
         <h1 className="news__title news__title-tag">{category}</h1>
-        <div
-          className={
-            categoryName.length
-              ? "news__content"
-              : "news__content news__content-empty"
-          }
-        >
-          {categoryName.length ? (
-            categoryName.map((item, index) => {
-              return <NewsBlock {...item} key={index} />;
-            })
-          ) : (
-            <NewsEmpty />
-          )}
+        <div className="news__content">
+          <div
+            className={
+              categoryName.length
+                ? "news__content-blocks"
+                : "news__content-blocks news__content-empty"
+            }
+          >
+            {categoryName.length ? (
+              categoryName.map((item, index) => {
+                return <NewsBlock {...item} key={index} />;
+              })
+            ) : (
+              <NewsEmpty />
+            )}
+          </div>
+          <div>
+            <h1>Next time... 😀</h1>
+          </div>
         </div>
       </div>
     </section>

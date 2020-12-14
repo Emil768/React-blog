@@ -14,8 +14,8 @@ import axios from "axios";
 
 function News(props) {
   const [news, setNews] = useState([]);
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
 
   useEffect(() => {
     axios.get("http://localhost:3001").then((res) => setNews(res.data));
@@ -41,9 +41,9 @@ function News(props) {
   //Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentsPosts = news.slice(indexOfFirstPost,indexOfLastPost);
+  const currentsPosts = news.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = pageNumber =>setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <section className="news page-section">
@@ -65,20 +65,31 @@ function News(props) {
             })}
           </ul>
         </div>
-        <div
-          className={
-            news.length ? "news__content" : "news__content news__content-empty"
-          }
-        >
-          {news.length ? (
-            currentsPosts.map((item, index) => {
-              return <NewsBlock {...item} key={index} />;
-            })
-          ) : (
-            <NewsEmpty />
-          )}
+        <div className="news__content">
+          <div
+            className={
+              news.length
+                ? "news__content-blocks"
+                : "news__content-blocks news__content-empty"
+            }
+          >
+            {news.length ? (
+              currentsPosts.map((item, index) => {
+                return <NewsBlock {...item} key={index} />;
+              })
+            ) : (
+              <NewsEmpty />
+            )}
+          </div>
+          <div>
+            <h1>Next time... 😀</h1>
+          </div>
         </div>
-        <Pagination postsPerPage={postsPerPage} totalPosts={news.length} paginate = {paginate}/>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={news.length}
+          paginate={paginate}
+        />
       </div>
     </section>
   );
