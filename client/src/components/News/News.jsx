@@ -14,6 +14,7 @@ import axios from "axios";
 
 function News(props) {
   const [news, setNews] = useState([]);
+  const [searchNews, setSearchNews] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
 
@@ -26,7 +27,7 @@ function News(props) {
   news.forEach((item) => {
     if (
       resultArray.find((object) => {
-        if (object.tag === item.tag) {
+        if (object.tag.toLowerCase() === item.tag.toLowerCase()) {
           return true;
         } else {
           return false;
@@ -45,26 +46,20 @@ function News(props) {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const filterNotes = news.filter((note) => {
+    return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
+  });
+
   return (
     <section className="news page-section">
       <div className="container">
-        <h1 className="news__title">Все новости</h1>
-        <div className="news-wrapper">
-          <ul className="news__list mobile-oveflow">
-            {resultArray.map((item) => {
-              return (
-                <li className="news__list-item" key={item.id}>
-                  <Link
-                    to={`/category/${item.tag}`}
-                    className="news__list-link"
-                  >
-                    {item.tag}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <h1
+          className={
+            news.length ? "news__title" : "news__title news__title-empty "
+          }
+        >
+          Все новости
+        </h1>
         <div className="news__content">
           <div
             className={
@@ -74,22 +69,59 @@ function News(props) {
             }
           >
             {news.length ? (
-              currentsPosts.map((item, index) => {
-                return <NewsBlock {...item} key={index} />;
-              })
+              filterNotes.length ? (
+                filterNotes.map((item, index) => {
+                  return <NewsBlock {...item} key={index} />;
+                })
+              ) : (
+                <NewsEmpty
+                  text="Ничего не найдено"
+                  searchText={searchNews}
+                  state={true}
+                />
+              )
             ) : (
-              <NewsEmpty />
+              <NewsEmpty text="Новостей пока нет" state={false} />
             )}
           </div>
-          <div>
-            <h1>Next time... 😀</h1>
-          </div>
+          {news.length ? (
+            <div className="news__content-info">
+              <div className="news__content-search news__search">
+                <input
+                  className="news__search-input"
+                  type="text"
+                  placeholder="Search"
+                  onChange={(e) => setSearchNews(e.target.value)}
+                  maxLength={50}
+                />
+                {/* <button className="news__search-btn"></button> */}
+              </div>
+              <div className="news-wrapper">
+                <h3>Категории</h3>
+                <ul className="news__list mobile-oveflow">
+                  {resultArray.map((item) => {
+                    return (
+                      <li className="news__list-item" key={item.id}>
+                        <Link
+                          to={`/category/${item.tag}`}
+                          className="news__list-link"
+                        >
+                          {item.tag}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <h1>Next time... 😀</h1>
+            </div>
+          ) : null}
         </div>
-        <Pagination
+        {/* <Pagination
           postsPerPage={postsPerPage}
           totalPosts={news.length}
           paginate={paginate}
-        />
+        /> */}
       </div>
     </section>
   );
