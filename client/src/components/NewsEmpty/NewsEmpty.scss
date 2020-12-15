@@ -1,9 +1,12 @@
 .news__empty {
   text-align: center;
+
   &-title {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 40px;
+
+    margin: 0 auto;
   }
   &-img {
     margin-bottom: 80px;
@@ -17,7 +20,7 @@
     display: inline-block;
     font-size: 16px;
     border: 1px solid #c4c4c4;
-    margin-bottom: 50px;
+
     // color: #40b0ee;
     &:hover {
       color: #40b0ee;

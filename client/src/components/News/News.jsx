@@ -19,7 +19,12 @@ function News(props) {
   const [postsPerPage] = useState(6);
 
   useEffect(() => {
-    axios.get("http://localhost:3001").then((res) => setNews(res.data));
+    axios
+      .get("http://localhost:3001")
+      .then((res) => setNews(res.data))
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   //dublicate tag
@@ -39,16 +44,16 @@ function News(props) {
     }
   });
 
+  const filterNews = news.filter((note) => {
+    return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
+  });
+
   //Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentsPosts = news.slice(indexOfFirstPost, indexOfLastPost);
+  const currentsPosts = filterNews.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const filterNotes = news.filter((note) => {
-    return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
-  });
 
   return (
     <section className="news page-section">
@@ -69,19 +74,15 @@ function News(props) {
             }
           >
             {news.length ? (
-              filterNotes.length ? (
-                filterNotes.map((item, index) => {
+              filterNews.length ? (
+                currentsPosts.map((item, index) => {
                   return <NewsBlock {...item} key={index} />;
                 })
               ) : (
-                <NewsEmpty
-                  text="Ничего не найдено"
-                  searchText={searchNews}
-                  state={true}
-                />
+                <NewsEmpty searchText={searchNews} state={true} />
               )
             ) : (
-              <NewsEmpty text="Новостей пока нет" state={false} />
+              <NewsEmpty state={false} />
             )}
           </div>
           {news.length ? (
@@ -92,9 +93,8 @@ function News(props) {
                   type="text"
                   placeholder="Search"
                   onChange={(e) => setSearchNews(e.target.value)}
-                  maxLength={50}
+                  maxLength={30}
                 />
-                {/* <button className="news__search-btn"></button> */}
               </div>
               <div className="news-wrapper">
                 <h3>Категории</h3>
@@ -113,15 +113,14 @@ function News(props) {
                   })}
                 </ul>
               </div>
-              <h1>Next time... 😀</h1>
             </div>
           ) : null}
         </div>
-        {/* <Pagination
+        <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={news.length}
+          totalPosts={filterNews.length}
           paginate={paginate}
-        /> */}
+        />
       </div>
     </section>
   );
