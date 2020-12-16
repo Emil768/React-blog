@@ -1,12 +1,12 @@
 .news__empty {
-  text-align: center;
-
+  width: 100%;
+  &-content {
+    text-align: center;
+  }
   &-title {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 40px;
-
-    margin: 0 auto;
   }
   &-img {
     margin-bottom: 80px;
@@ -27,4 +27,8 @@
       border-color: #40b0ee;
     }
   }
+}
+
+.empty-img {
+  margin-bottom: 0;
 }

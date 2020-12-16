@@ -1,0 +1,42 @@
+.admin {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__input {
+    padding: 10px 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    transition: all ease 0.3s;
+    &:focus {
+      border-bottom-color: #40b0ee;
+    }
+    &::placeholder {
+      font-family: "Roboto", sans-serif;
+    }
+    margin-bottom: 10px;
+  }
+  &__btn {
+    cursor: pointer;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 5px 20px;
+
+    &:hover {
+      color: #40b0ee;
+      border-color: #40b0ee;
+    }
+  }
+}

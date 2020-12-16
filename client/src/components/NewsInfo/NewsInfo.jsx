@@ -15,7 +15,6 @@ function NewsInfo(props) {
   moment.locale("ru");
   const id = props.match.params.id;
   const [newsInfo, setNewsInfo] = useState([]);
-  console.log(id);
   useEffect(() => {
     fetch(`http://localhost:3001`)
       .then((res) => res.json())

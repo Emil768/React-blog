@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 //lib
 import axios from "axios";
+import AdminBlock from "../AdminBlock/AdminBlock";
 //
 
 function News(props) {
@@ -113,6 +114,7 @@ function News(props) {
                   })}
                 </ul>
               </div>
+              <AdminBlock />
             </div>
           ) : null}
         </div>
