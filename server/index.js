@@ -16,7 +16,18 @@ const db = mysql.createPool({
 });
 
 app.get("/", (req, res) => {
-  db.query("select* from news", (err, result) => {
+  db.query("select* from news order by date desc", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.post("/password", (req, res) => {
+  const password = req.body.password;
+  db.query("select* from password where pass = ?", password, (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -31,7 +42,6 @@ app.post("/insert", (req, res) => {
   const img = req.body.img;
   const tag = req.body.tag;
 
-  console.log(req);
   const sqlInsert = "insert into news(title,text,img,tag)values(?,?,?,?)";
   db.query(sqlInsert, [title, text, img, tag], (err, result) => {
     if (err) {
