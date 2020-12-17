@@ -3,12 +3,17 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
   &__content {
     display: flex;
     flex-direction: column;
   }
   &__title {
     margin-bottom: 20px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
   }
   &__input {
     padding: 10px 10px;
@@ -24,6 +29,9 @@
       font-family: "Roboto", sans-serif;
     }
     margin-bottom: 10px;
+    &.hide {
+      display: none;
+    }
   }
   &__btn {
     cursor: pointer;

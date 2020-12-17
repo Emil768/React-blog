@@ -22,10 +22,12 @@ function App(props) {
         <Route exact path="/" component={News} />
         <Route exact path="/about" component={About} />
         <Route path="/about/project/:name" component={ProjectInfo} />
-        <Route path="/addnews" component={AddNews} />
+        {localStorage.length ? (
+          <Route path="/addnews" component={AddNews} />
+        ) : null}
         <Route path="/news/:id" component={NewsInfo} />
         <Route path="/category/:name" component={Category} />
-        <Route path = "/:page_number"/>
+        <Route path="/:page_number" />
       </Switch>
       <Footer />
     </div>

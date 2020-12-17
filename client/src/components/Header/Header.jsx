@@ -71,11 +71,13 @@ function Header() {
                 Обо мне
               </Link>
             </li>
-            <li className="menu__item">
-              <Link to="/addnews" className="menu__link">
-                Предложить новость
-              </Link>
-            </li>
+            {localStorage.length ? (
+              <li className="menu__item">
+                <Link to="/addnews" className="menu__link">
+                  Предложить новость
+                </Link>
+              </li>
+            ) : null}
           </ul>
           <MobileMenu state={activeMobileMenu} setState={setActiveMobileMenu} />
         </div>

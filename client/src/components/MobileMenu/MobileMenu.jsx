@@ -29,11 +29,13 @@ function MobileMenu({ state, setState }) {
             Обо мне
           </Link>
         </li>
-        <li className="menu__item">
-          <Link to="/addnews" className="menu__link" onClick={hideMobileMenu}>
-            Предложить новость
-          </Link>
-        </li>
+        {localStorage.length ? (
+          <li className="menu__item">
+            <Link to="/addnews" className="menu__link" onClick={hideMobileMenu}>
+              Предложить новость
+            </Link>
+          </li>
+        ) : null}
       </ul>
     </div>
   );
