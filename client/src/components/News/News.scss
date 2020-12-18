@@ -27,6 +27,12 @@
       &:last-child {
         margin-right: 0;
       }
+      &.active {
+        border-color: #40b0ee;
+        a {
+          color: #40b0ee;
+        }
+      }
     }
     &-link {
       position: relative;

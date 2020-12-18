@@ -1,3 +1,11 @@
 .news__title-tag {
   font-size: 30px;
 }
+.category {
+  .news__block {
+    margin-right: 30px;
+    &:nth-last-child(even) {
+      margin-right: 0;
+    }
+  }
+}

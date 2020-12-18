@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 //lib
 import axios from "axios";
 import AdminBlock from "../AdminBlock/AdminBlock";
+import NewsContentInfo from "../NewsContentInfo/NewsContentInfo";
 //
 
 function News(props) {
@@ -55,7 +56,7 @@ function News(props) {
   const currentsPosts = filterNews.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  console.log(resultArray);
   return (
     <section className="news page-section">
       <div className="container">
@@ -87,35 +88,7 @@ function News(props) {
             )}
           </div>
           {news.length ? (
-            <div className="news__content-info">
-              <div className="news__content-search news__search">
-                <input
-                  className="news__search-input"
-                  type="text"
-                  placeholder="Search"
-                  onChange={(e) => setSearchNews(e.target.value)}
-                  maxLength={30}
-                />
-              </div>
-              <div className="news-wrapper">
-                <h3>Категории</h3>
-                <ul className="news__list mobile-oveflow">
-                  {resultArray.map((item) => {
-                    return (
-                      <li className="news__list-item" key={item.id}>
-                        <Link
-                          to={`/category/${item.tag}`}
-                          className="news__list-link"
-                        >
-                          {item.tag}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-              <AdminBlock />
-            </div>
+            <NewsContentInfo data={resultArray} setSearch={setSearchNews} />
           ) : null}
         </div>
         <Pagination

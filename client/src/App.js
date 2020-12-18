@@ -7,7 +7,6 @@ import About from "./components/About/About";
 import AddNews from "./components/AddNews/AddNews";
 import NewsInfo from "./components/NewsInfo/NewsInfo";
 import Category from "./components/Category/Category";
-import ProjectInfo from "./components/ProjectInfo/ProjectInfo";
 //
 //lib
 import { Route, Switch } from "react-router-dom";
@@ -21,7 +20,6 @@ function App(props) {
       <Switch>
         <Route exact path="/" component={News} />
         <Route exact path="/about" component={About} />
-        <Route path="/about/project/:name" component={ProjectInfo} />
         {localStorage.length ? (
           <Route path="/addnews" component={AddNews} />
         ) : null}
