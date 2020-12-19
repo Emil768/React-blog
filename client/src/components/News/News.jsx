@@ -5,16 +5,14 @@ import "./News.scss";
 import NewsBlock from "../NewsBlock/NewsBlock";
 import NewsEmpty from "../NewsEmpty/NewsEmpty";
 import Pagination from "../Pagination/Pagination";
-import { Link } from "react-router-dom";
-//
 
 //lib
 import axios from "axios";
-import AdminBlock from "../AdminBlock/AdminBlock";
+
 import NewsContentInfo from "../NewsContentInfo/NewsContentInfo";
 //
 
-function News(props) {
+function News() {
   const [news, setNews] = useState([]);
   const [searchNews, setSearchNews] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,7 +54,7 @@ function News(props) {
   const currentsPosts = filterNews.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  console.log(resultArray);
+
   return (
     <section className="news page-section">
       <div className="container">

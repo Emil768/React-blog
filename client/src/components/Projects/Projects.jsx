@@ -24,21 +24,12 @@ import redux from "../../img/redux.png";
 //lib
 import Aos from "aos";
 import "aos/dist/aos.css";
-// import Slider from "react-slick";
-
-//swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/scrollbar/scrollbar.scss";
 
 //components
 import ImageView from "../ImageView/ImageView";
 
 //
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+
 function Projects() {
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -137,7 +128,7 @@ function Projects() {
   };
 
   const projects = [react, reactNative];
-  console.log(projects);
+
   return (
     <section data-aos="fade-up" className="projects page-section">
       <div className="container">

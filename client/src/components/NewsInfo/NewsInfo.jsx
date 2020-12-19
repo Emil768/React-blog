@@ -1,40 +1,65 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
 import "./NewsInfo.scss";
 //components
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
-import { Link } from "react-router-dom";
+import NewsUpdate from "../NewsUpdate/NewsUpdate";
+import { Link, useHistory } from "react-router-dom";
 import parse from "html-react-parser";
 //
 //lib
 import * as moment from "moment/moment";
 import "moment/locale/ru";
+import axios from "axios";
 //
 
 function NewsInfo(props) {
   moment.locale("ru");
-  const id = props.match.params.id;
+  const idNews = props.match.params.id;
   const [newsInfo, setNewsInfo] = useState([]);
   const [activePopup, setActivePopup] = useState(false);
-  useEffect(() => {
-    fetch(`http://localhost:3001`)
-      .then((res) => res.json())
-      .then((res) => setNewsInfo(res.find((item) => item.id == id)));
-    document.body.addEventListener("click", handleOutsideClick);
-  }, [id]);
-  const { title, text, img, tag, date } = newsInfo;
-
-  const popupRef = useRef();
-
-  const handleOutsideClick = (event) => {
+  const [activeUpdate, setActiveUpdate] = useState(false);
+  const handleOutsideClick = useCallback((event) => {
     const path = event.path;
     if (!path.includes(popupRef.current)) {
       setActivePopup(false);
     }
-  };
+  }, []);
+
+  const getNews = useCallback(() => {
+    axios
+      .get(`http://localhost:3001`)
+      .then((res) => setNewsInfo(res.data.find((item) => item.id == idNews)));
+  }, [idNews]);
+
+  useEffect(() => {
+    getNews();
+    document.body.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.body.removeEventListener("click", handleOutsideClick);
+    };
+  }, [handleOutsideClick, getNews]);
+
+  const { id, title, text, img, tag, date } = newsInfo;
+  const popupRef = useRef();
 
   const handlerActivePopup = () => {
     setActivePopup(!activePopup);
+  };
+
+  const history = useHistory();
+
+  const handlerDeleteNews = () => {
+    const confirm = window.confirm("Вы действительно хотите удалить новость?");
+    if (confirm) {
+      axios.delete(`http://localhost:3001/delete/${id}`);
+      history.push("/");
+      history.go(0);
+    }
+  };
+
+  const handlerUpdateNews = () => {
+    setActiveUpdate(!activeUpdate);
   };
 
   return (
@@ -64,8 +89,12 @@ function NewsInfo(props) {
               }
             >
               <ul className="news__menu">
-                <li className="news__menu-item">Редактировать</li>
-                <li className="news__menu-item">Удалить</li>
+                <li className="news__menu-item" onClick={handlerUpdateNews}>
+                  Редактировать
+                </li>
+                <li className="news__menu-item" onClick={handlerDeleteNews}>
+                  Удалить
+                </li>
               </ul>
             </div>
           </div>
@@ -88,6 +117,11 @@ function NewsInfo(props) {
           <div className="news-info__text">{text && parse(text)}</div>
         </div>
       </div>
+      <NewsUpdate
+        state={activeUpdate}
+        setState={setActiveUpdate}
+        {...newsInfo}
+      />
     </section>
   );
 }

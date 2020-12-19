@@ -2,7 +2,7 @@ import React, { useState, createRef } from "react";
 
 import "./InputTags.scss";
 
-function InputTags({ setState }) {
+function InputTags({ setState, tagValue }) {
   const [tags, setTags] = useState(["React", "Vue"]);
 
   const inputRef = createRef();
@@ -45,6 +45,7 @@ function InputTags({ setState }) {
             onKeyDown={addTag}
             autoFocus
             onChange={(e) => setState(e.target.value)}
+            defaultValue={tagValue}
           />
         </li>
       </ul>

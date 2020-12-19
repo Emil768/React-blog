@@ -13,8 +13,7 @@ import { Route, Switch } from "react-router-dom";
 import Contact from "./components/Contact/Contact";
 
 //
-function App(props) {
-  console.log(props);
+function App() {
   return (
     <div className="App">
       <Header />
