@@ -12,7 +12,7 @@ import heroku from "../../img/heroku.png";
 import github from "../../img/iconfinder_github_1220319.svg";
 import gitlab from "../../img/gitlab.png";
 import dowload from "../../img/iconfinder_file-apk-format-type_5386891.svg";
-import netlify from "../../img/netlify.png"
+import netlify from "../../img/netlify.png";
 
 //img
 import reactSvg from "../../img/iconfinder_react_1296845.svg";
@@ -92,7 +92,6 @@ function Projects() {
           link: "https://laughing-hypatia-17bc7a.netlify.app/",
         },
       ],
-
     },
   ];
 
@@ -160,108 +159,101 @@ function Projects() {
             </ul>
           </div>
           <div className="projects__content">
-            <Swiper
-              spaceBetween={40}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-            >
-              {projects[activeTab].map((item, index) => {
-                return (
-                  <SwiperSlide key={index}>
-                    <div className="projects__block" key={index}>
-                      <h1 className="projects__block-title">{item.title}</h1>
-                      <div className="projects__block-content">
-                        <div className="projects__block-info">
-                          <div className="projects__stack stack">
-                            {item.frontend ? (
-                              <div className="stack__frontend">
-                                <h3 className="stack__title">Frontend</h3>
-                                <div className="stack__wrapper">
-                                  {item.frontend.map((item, index) => {
-                                    return (
-                                      <img
-                                        className="stack__frontend-img"
-                                        src={item}
-                                        alt=""
-                                        key={index}
-                                      />
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            ) : (
-                              <div className="stack__frontend">
-                                <h3 className="stack__title">Mobile</h3>
-                                <div className="stack__wrapper">
-                                  {item.mobile.map((item, index) => {
-                                    return (
-                                      <img
-                                        className="stack__frontend-img "
-                                        src={item}
-                                        alt=""
-                                        key={index}
-                                      />
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            )}
-                            {item.backend.length ? (
-                              <div className="stack__backend">
-                                <h3 className="stack__title">Backend</h3>
-                                {item.backend.map((item, index) => {
-                                  return (
-                                    <img
-                                      className="stack__frontend-img"
-                                      src={item}
-                                      alt=""
-                                      key={index}
-                                    />
-                                  );
-                                })}
-                              </div>
-                            ) : null}
+            {projects[activeTab].map((item, index) => {
+              return (
+                <div className="projects__block" key={index}>
+                  <h1 className="projects__block-title">{item.title}</h1>
+                  <div className="projects__block-content">
+                    <div className="projects__block-info">
+                      <div className="projects__stack stack">
+                        {item.frontend ? (
+                          <div className="stack__frontend">
+                            <h3 className="stack__title">Frontend</h3>
+                            <div className="stack__wrapper">
+                              {item.frontend.map((item, index) => {
+                                return (
+                                  <img
+                                    className="stack__frontend-img"
+                                    src={item}
+                                    alt=""
+                                    key={index}
+                                  />
+                                );
+                              })}
+                            </div>
                           </div>
-                          <div className="projects__block-links">
-                            <h3 className="stack__title">Source</h3>
-                            {item.links.map((item, index) => {
+                        ) : (
+                          <div className="stack__frontend">
+                            <h3 className="stack__title">Mobile</h3>
+                            <div className="stack__wrapper">
+                              {item.mobile.map((item, index) => {
+                                return (
+                                  <img
+                                    className="stack__frontend-img "
+                                    src={item}
+                                    alt=""
+                                    key={index}
+                                  />
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                        {item.backend.length ? (
+                          <div className="stack__backend">
+                            <h3 className="stack__title">Backend</h3>
+                            {item.backend.map((item, index) => {
                               return (
-                                <a
-                                  href={item.link}
-                                  className="projects__block-link"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
+                                <img
+                                  className="stack__frontend-img"
+                                  src={item}
+                                  alt=""
                                   key={index}
-                                >
-                                  <img src={item.img} alt="" />
-                                </a>
+                                />
                               );
                             })}
                           </div>
-                        </div>
-                        <div
-                          className={
-                            item.frontend
-                              ? "projects__block-img "
-                              : "projects__mobile-img "
-                          }
-                        >
-                          <div style={{
-                             backgroundImage:`url("${item.img}")`,
-                             backgroundPosition:"top",
-                             backgroundRepeat:"no-repeat",
-                             backgroundSize:"cover",
-                             width:"100%",
-                             height:"300px"
-                          }}></div>
-                        </div>
+                        ) : null}
+                      </div>
+                      <div className="projects__block-links">
+                        <h3 className="stack__title">Source</h3>
+                        {item.links.map((item, index) => {
+                          return (
+                            <a
+                              href={item.link}
+                              className="projects__block-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              key={index}
+                            >
+                              <img src={item.img} alt="" />
+                            </a>
+                          );
+                        })}
                       </div>
                     </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+                    <div
+                      className={
+                        item.frontend
+                          ? "projects__block-img "
+                          : "projects__mobile-img "
+                      }
+                    >
+                      <div
+                        style={{
+                          backgroundImage: `url("${item.img}")`,
+                          backgroundPosition: "top",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "cover",
+                          width: "100%",
+                          height: "300px",
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

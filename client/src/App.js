@@ -10,6 +10,7 @@ import Category from "./components/Category/Category";
 //
 //lib
 import { Route, Switch } from "react-router-dom";
+import Contact from "./components/Contact/Contact";
 
 //
 function App(props) {
@@ -25,6 +26,7 @@ function App(props) {
         ) : null}
         <Route path="/news/:id" component={NewsInfo} />
         <Route path="/category/:name" component={Category} />
+        <Route path="/contacts" component={Contact} />
         <Route path="/:page_number" />
       </Switch>
       <Footer />

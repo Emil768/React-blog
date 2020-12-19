@@ -1,6 +1,10 @@
 .mobile-menu__linewrapper {
   position: fixed;
   z-index: 2;
+
+  .menu__link {
+    margin-right: 0;
+  }
 }
 .mobile-menu__overside {
   position: fixed; /* Stay in place */
@@ -33,9 +37,6 @@
     transform: translateX(0%);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
   }
-}
-.menu__item {
-  margin-right: 0;
 }
 
 //media

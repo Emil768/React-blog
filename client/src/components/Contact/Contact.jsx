@@ -48,12 +48,14 @@ function Contact() {
               type="text"
               placeholder="Ваше имя"
               name="name"
+              required
             />
             <input
               className="contact__form-input"
               type="email"
               placeholder="Ваш e-mail"
               name="email"
+              required
             />
 
             <textarea
@@ -62,6 +64,7 @@ function Contact() {
               rows="10"
               placeholder="Ваше сообщение"
               name="message"
+              required
             ></textarea>
             <button className="contact__form-btn" type="submit">
               Отправить

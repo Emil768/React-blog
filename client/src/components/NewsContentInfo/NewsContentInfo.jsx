@@ -3,7 +3,6 @@ import "./NewsContentInfo.scss";
 import AdminBlock from "../AdminBlock/AdminBlock";
 import { Link } from "react-router-dom";
 function NewsContentInfo({ data, setSearch, activeName }) {
-  console.log(activeName);
   return (
     <div className="news__content-info">
       <div className="news__content-search news__search">

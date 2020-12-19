@@ -17,7 +17,7 @@ function NewsEmpty({ state, searchText }) {
         </div>
       ) : (
         <div className="news__empty-content">
-          <h1 className="news__empty-title">"Новостей пока нет😕"</h1>
+          <h1 className="news__empty-title">Новостей пока нет😕</h1>
           <div className="news__empty-img">
             <img src={emptyGif} alt="" />
           </div>

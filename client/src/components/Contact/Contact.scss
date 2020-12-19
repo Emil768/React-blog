@@ -1,5 +1,11 @@
 .contact {
   text-align: center;
+  &.page-section {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
   &__content {
     display: flex;
     justify-content: space-around;
@@ -67,6 +73,17 @@
         color: #40b0ee;
         border-color: #40b0ee;
       }
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .contact {
+    &__img {
+      display: none;
+    }
+    &__form {
+      width: 100%;
     }
   }
 }

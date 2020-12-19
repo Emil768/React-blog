@@ -15,22 +15,19 @@
 .menu {
   display: flex;
 
-  &__item {
-    margin-right: 15px;
+  &__link {
+    margin-right: 10px;
     padding: 10px 15px;
+    display: inline-block;
     border: 1px solid transparent;
     &:hover {
-      cursor: pointer;
+      color: #40b0ee;
       border-color: #40b0ee;
-      a {
-        color: #40b0ee;
-      }
     }
-    &.active {
+    &--active {
       border-color: #40b0ee;
-      a {
-        color: #40b0ee;
-      }
+      color: #40b0ee;
+      border-color: #40b0ee;
     }
     &:last-child {
       margin-right: 0;

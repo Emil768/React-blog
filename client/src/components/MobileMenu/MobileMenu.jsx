@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./MobileMenu.scss";
 function MobileMenu({ state, setState }) {
   const hideMobileMenu = () => {
@@ -18,25 +18,46 @@ function MobileMenu({ state, setState }) {
         }
         onClick={hideMobileMenu}
       ></div>
-      <ul className={state ? "mobile-menu__list active" : "mobile-menu__list"}>
-        <li className="menu__item">
-          <Link to="/" className="menu__link" onClick={hideMobileMenu}>
-            Новости
-          </Link>
-        </li>
-        <li className="menu__item">
-          <Link to="/about" className="menu__link" onClick={hideMobileMenu}>
-            Обо мне
-          </Link>
-        </li>
+      <nav className={state ? "mobile-menu__list active" : "mobile-menu__list"}>
+        <NavLink
+          exact
+          to="/"
+          className="menu__link"
+          activeClassName="menu__link--active"
+          onClick={hideMobileMenu}
+        >
+          Новости
+        </NavLink>
+
+        <NavLink
+          to="/about"
+          className="menu__link"
+          activeClassName="menu__link--active"
+          onClick={hideMobileMenu}
+        >
+          Обо мне
+        </NavLink>
+
+        <NavLink
+          to="/contacts"
+          className="menu__link"
+          activeClassName="menu__link--active"
+          onClick={hideMobileMenu}
+        >
+          Контакты
+        </NavLink>
+
         {localStorage.length ? (
-          <li className="menu__item">
-            <Link to="/addnews" className="menu__link" onClick={hideMobileMenu}>
-              Предложить новость
-            </Link>
-          </li>
+          <NavLink
+            to="/addnews"
+            className="menu__link"
+            activeClassName="menu__link--active"
+            onClick={hideMobileMenu}
+          >
+            Предложить новость
+          </NavLink>
         ) : null}
-      </ul>
+      </nav>
     </div>
   );
 }

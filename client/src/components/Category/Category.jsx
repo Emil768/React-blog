@@ -22,7 +22,6 @@ function Category(props) {
         axios.spread((data1, data2) => {
           setCategoryName(data1.data);
           setNews(data2.data);
-          console.log(data1, data2);
         })
       );
   }, [category]);

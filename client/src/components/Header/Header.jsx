@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./Header.scss";
 //lib
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
 // import history from "../../history";
 //
@@ -60,25 +60,42 @@ function Header() {
             <div className="mobile-menu-line"></div>
             <div className="mobile-menu-line"></div>
           </button>
-          <ul className="menu">
-            <li className="menu__item">
-              <Link to="/" className="menu__link">
-                Новости
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/about" className="menu__link">
-                Обо мне
-              </Link>
-            </li>
+          <nav className="menu">
+            <NavLink
+              exact
+              to="/"
+              className="menu__link"
+              activeClassName="menu__link--active"
+            >
+              Новости
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className="menu__link"
+              activeClassName="menu__link--active"
+            >
+              Обо мне
+            </NavLink>
+
+            <NavLink
+              to="/contacts"
+              className="menu__link"
+              activeClassName="menu__link--active"
+            >
+              Контакты
+            </NavLink>
+
             {localStorage.length ? (
-              <li className="menu__item">
-                <Link to="/addnews" className="menu__link">
-                  Предложить новость
-                </Link>
-              </li>
+              <NavLink
+                to="/addnews"
+                className="menu__link"
+                activeClassName="menu__link--active"
+              >
+                Предложить новость
+              </NavLink>
             ) : null}
-          </ul>
+          </nav>
           <MobileMenu state={activeMobileMenu} setState={setActiveMobileMenu} />
         </div>
       </div>
