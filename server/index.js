@@ -52,13 +52,47 @@ app.post("/insert", (req, res) => {
   });
 });
 
+//update
+
+app.put("/update/:id", (req, res) => {
+  const id = req.params.id;
+  const title = req.body.title;
+  const text = req.body.text;
+  const img = req.body.img;
+  const tag = req.body.tag;
+
+  console.log(tag);
+
+  const sqlUpdate = "update news set title=?,text=?,img=?,tag=? where id=?";
+  db.query(sqlUpdate, [title, text, img, tag, id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//delete
+app.delete("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  const sqlDelete = "delete from news where id = ?";
+  db.query(sqlDelete, id, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 //category
 
 app.get("/category/:name", (req, res) => {
   const tag = req.params.name;
   console.log(req.params);
 
-  db.query("select* from news where tag=?", tag, (err, result) => {
+  db.query("select* from news where tag=? ", tag, (err, result) => {
     if (err) {
       console.log(err);
     } else {
