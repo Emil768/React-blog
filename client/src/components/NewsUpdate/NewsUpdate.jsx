@@ -20,7 +20,7 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
     setUpdateTitle(title);
     setUpdateText(text);
     setUpdateImg(img);
-    setUpdateTag(tag);
+    setUpdateTag([...updateTag, tag]);
   }, [title, text, img, tag]);
 
   const handlerChange = (newText) => {
@@ -36,15 +36,15 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
     });
   };
 
+  console.log(updateTag[0]);
+
   const handlerChangeState = () => {
     setState(!state);
   };
-
+  // const [tags, setTags] = useState([]);
   const handleChangeTag = (tags) => {
     setUpdateTag(tags);
   };
-
-  console.log(updateTag);
 
   const toolbarOptions = [
     ["bold", "italic", "underline", "strike"],

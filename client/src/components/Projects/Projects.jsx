@@ -225,7 +225,6 @@ function Projects() {
           </div>
         </div>
       </div>
-      <ImageView />
     </section>
   );
 }
