@@ -2,7 +2,7 @@ import React from "react";
 import emptyGif from "../../img/empty.gif";
 import quesGif from "../../img/ques.gif";
 import "./NewsEmpty.scss";
-import { Link } from "react-router-dom";
+
 function NewsEmpty({ state, searchText }) {
   return (
     <div className="news__empty ">
@@ -21,9 +21,6 @@ function NewsEmpty({ state, searchText }) {
           <div className="news__empty-img">
             <img src={emptyGif} alt="" />
           </div>
-          <Link to="/addnews" className="news__empty-btn">
-            Добавить новость
-          </Link>
         </div>
       )}
     </div>

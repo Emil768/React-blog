@@ -5,6 +5,7 @@ import "./NewsBlock.scss";
 import { Link } from "react-router-dom";
 import * as moment from "moment/moment";
 import "moment/locale/ru";
+import parse from "html-react-parser";
 
 //
 
@@ -34,7 +35,7 @@ function NewsBlock({ id, title, img, text, tag, date }) {
         <div className="news__block-tags">
           <span className="news__block-tag">{tag}</span>
         </div>
-        <div className="news__block-text">{resultText}</div>
+        <div className="news__block-text">{parse(resultText[0])}</div>
         <Link to={`/news/${id}`} className="news__block-btn">
           Читать далее
         </Link>

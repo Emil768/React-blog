@@ -6,7 +6,6 @@ import xiaomiNotes from "../../img/Xiaomi-Notes (1).png";
 import internetShop from "../../img/internet-shop.PNG";
 
 import collegeProject from "../../img/college-project.jpg";
-import schoolLifehacks from "../../img/school-lifehacks.jpg";
 
 import heroku from "../../img/heroku.png";
 import github from "../../img/iconfinder_github_1220319.svg";
@@ -101,23 +100,6 @@ function Projects() {
         {
           img: dowload,
           link: "https://yadi.sk/d/jp1LettuFhndfg",
-        },
-      ],
-    },
-    {
-      title: "School-lifehacks",
-      text: "",
-      img: schoolLifehacks,
-      mobile: [reactNativeSvg],
-      backend: [],
-      links: [
-        {
-          img: github,
-          link: "https://github.com/Zandess/school-project",
-        },
-        {
-          img: dowload,
-          link: "https://yadi.sk/d/Ubs6VVhrLCblDA",
         },
       ],
     },

@@ -4,7 +4,15 @@
 .category {
   .news__block {
     margin-right: 30px;
-    &:nth-last-child(even) {
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .category {
+    .news__block {
       margin-right: 0;
     }
   }

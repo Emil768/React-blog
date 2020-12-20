@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import "./AdminBlock.scss";
 import axios from "axios";
@@ -20,9 +20,7 @@ function AdminBlock() {
     }
   };
 
-  if (!dbPassword.length) {
-    console.log("no");
-  } else {
+  if (dbPassword.length) {
     localStorage.setItem("password", "succes");
     history.go(0);
   }

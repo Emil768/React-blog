@@ -11,7 +11,7 @@ function NewsContentInfo({ data, setSearch, activeName }) {
           type="text"
           placeholder="Search"
           onChange={(e) => setSearch(e.target.value)}
-          maxLength={16}
+          maxLength={13}
         />
       </div>
       <div className="news-wrapper">

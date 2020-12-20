@@ -53,6 +53,7 @@
   }
   iframe {
     max-width: 100%;
+    margin: 20px 0;
   }
   br {
     display: none;
@@ -60,6 +61,14 @@
   img {
     width: 100%;
     margin: 20px 0;
+  }
+  .news__empty {
+    height: 100vh;
+  }
+  .news__empty-img {
+    img {
+      width: auto;
+    }
   }
 }
 

@@ -4,10 +4,9 @@ import "./Header.scss";
 //lib
 import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
-// import history from "../../history";
+
 //
 function Header() {
-  // console.log(history.location.pathname);
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
 
   const handlerActiveMenu = () => {
@@ -20,7 +19,7 @@ function Header() {
     document.body.style.overflow = "visible";
   }
 
-  let mediaQueryList = window.matchMedia("(min-width: 560px)");
+  let mediaQueryList = window.matchMedia("(min-width: 660px)");
   function screenTest(e) {
     if (e.matches) {
       setActiveMobileMenu(false);
