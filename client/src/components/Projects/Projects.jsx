@@ -24,11 +24,6 @@ import redux from "../../img/redux.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-//components
-import ImageView from "../ImageView/ImageView";
-
-//
-
 function Projects() {
   useEffect(() => {
     Aos.init({ duration: 1000 });

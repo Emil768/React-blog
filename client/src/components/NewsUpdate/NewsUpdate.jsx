@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./NewsUpdate.scss";
 
-import "../InputTags/InputTags";
-
 //components
-import InputTags from "../InputTags/InputTags";
+import TagsInput from "react-tagsinput";
+import "react-tagsinput/react-tagsinput.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -16,7 +15,7 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateText, setUpdateText] = useState("");
   const [updateImg, setUpdateImg] = useState("");
-  const [updateTag, setUpdateTag] = useState("");
+  const [updateTag, setUpdateTag] = useState([]);
   useEffect(() => {
     setUpdateTitle(title);
     setUpdateText(text);
@@ -33,13 +32,19 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
       title: updateTitle,
       text: updateText,
       img: updateImg,
-      tag: updateTag,
+      tag: updateTag[0],
     });
   };
 
   const handlerChangeState = () => {
     setState(!state);
   };
+
+  const handleChangeTag = (tags) => {
+    setUpdateTag(tags);
+  };
+
+  console.log(updateTag);
 
   const toolbarOptions = [
     ["bold", "italic", "underline", "strike"],
@@ -91,7 +96,21 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
                 toolbar: toolbarOptions,
               }}
             />
-            <InputTags setState={setUpdateTag} tagValue={updateTag} />
+            <TagsInput
+              value={updateTag}
+              onChange={handleChangeTag}
+              className="tags"
+              maxTags={6}
+              focusedClassName="tags--focused"
+              tagProps={{
+                className: "tag",
+                classNameRemove: "tag-remove",
+              }}
+              inputProps={{
+                className: "tags-input",
+                placeholder: "Добавьте тег",
+              }}
+            />
             <input
               className="addNews__form-url"
               type="text"

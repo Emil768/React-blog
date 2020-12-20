@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./AddNews.scss";
-import "../InputTags/InputTags";
 
 //components
-import InputTags from "../InputTags/InputTags";
+
+import TagsInput from "react-tagsinput";
+import "react-tagsinput/react-tagsinput.css";
+
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -14,7 +16,8 @@ function AddNews() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
-  const [tag, setTag] = useState("");
+  const [tags, setTags] = useState([]);
+
   const addNewNews = () => {
     if (title.trim() !== "" || text.trim() !== "") {
       axios
@@ -22,7 +25,7 @@ function AddNews() {
           title: title,
           text: text,
           img: img,
-          tag: tag,
+          tag: tags[0],
         })
         .then(() => alert("succesfully!"));
     } else {
@@ -33,6 +36,10 @@ function AddNews() {
   const handleChange = (text) => {
     setText(text);
   };
+  const handleChangeTag = (tags) => {
+    setTags(tags);
+  };
+
   const toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
     ["blockquote", "code-block"],
@@ -48,12 +55,14 @@ function AddNews() {
     ["link", "image", "video", "formula"],
   ];
 
+  console.log(tags);
+
   return (
     <section className="addNews page-section">
       <div className="container">
         <h1 className="addNews__title">Добавить новость</h1>
         <div className="addNews__content">
-          <form className="addNews__form">
+          <form className="addNews__form" onSubmit={(e) => e.preventDefault()}>
             <input
               className="addNews__form-title"
               type="text"
@@ -68,7 +77,21 @@ function AddNews() {
                 toolbar: toolbarOptions,
               }}
             />
-            <InputTags setState={setTag} />
+            <TagsInput
+              value={tags}
+              onChange={handleChangeTag}
+              className="tags"
+              maxTags={6}
+              focusedClassName="tags--focused"
+              tagProps={{
+                className: "tag",
+                classNameRemove: "tag-remove",
+              }}
+              inputProps={{
+                className: "tags-input",
+                placeholder: "Добавьте тег",
+              }}
+            />
             <input
               className="addNews__form-url"
               type="text"

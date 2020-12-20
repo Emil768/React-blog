@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Contact.scss";
-//lib
-import Aos from "aos";
-import "aos/dist/aos.css";
-import emailjs from "emailjs-com";
-//
 
-import mailGif from "../../img/mail.gif";
+import emailjs from "emailjs-com";
 
 function Contact() {
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
-
   function sendEmail(e) {
     e.preventDefault();
 
@@ -35,13 +26,10 @@ function Contact() {
   }
 
   return (
-    <section className="contact page-section" data-aos="fade-up">
+    <section className="contact page-section">
       <div className="container">
         <h1 className="contact__title">Contact me</h1>
         <div className="contact__content">
-          <div className="contact__img">
-            <img src={mailGif} alt="" />
-          </div>
           <form className="contact__form" onSubmit={sendEmail}>
             <input
               className="contact__form-input"
