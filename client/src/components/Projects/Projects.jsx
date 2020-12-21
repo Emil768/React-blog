@@ -59,6 +59,10 @@ function Projects() {
           img: github,
           link: "https://github.com/Zandess/Xiaomi-notes",
         },
+        {
+          img:netlify,
+          link:"https://upbeat-bose-ddd651.netlify.app/"
+        }
       ],
     },
     {

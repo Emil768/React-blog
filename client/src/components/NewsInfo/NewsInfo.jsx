@@ -28,9 +28,6 @@ function NewsInfo(props) {
     }
   }, []);
 
-  // const getNews = useCallback(() => {
-
-  // }, [idNews]);
 
   useEffect(() => {
     setLoading(true);
@@ -67,7 +64,7 @@ function NewsInfo(props) {
     setActiveUpdate(!activeUpdate);
   };
 
-  console.log(loading);
+ 
 
   return (
     <section className="news-info page-section">
