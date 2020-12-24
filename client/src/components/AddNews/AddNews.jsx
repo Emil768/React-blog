@@ -55,7 +55,6 @@ function AddNews() {
     ["link", "image", "video", "formula"],
   ];
 
-  console.log(tags);
 
   return (
     <section className="addNews page-section">

@@ -20,7 +20,7 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
     setUpdateTitle(title);
     setUpdateText(text);
     setUpdateImg(img);
-    setUpdateTag([...updateTag, tag]);
+    setUpdateTag(state=>[...state,tag]);
   }, [title, text, img, tag]);
 
   const handlerChange = (newText) => {
@@ -36,7 +36,6 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
     });
   };
 
-  console.log(updateTag[0]);
 
   const handlerChangeState = () => {
     setState(!state);

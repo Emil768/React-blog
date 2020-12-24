@@ -31,7 +31,7 @@ function NewsBlock({ id, title, img, text, tag, date }) {
       <div className="news__block-img" style={imgStyles}></div>
       <div className="news__block-content">
         <div className="news__block-date">{moment(date).calendar()}</div>
-        <h2 className="news__block-title">{title}</h2>
+        <h2 className="news__block-title" title={`${title}`}>{title}</h2>
         <div className="news__block-tags">
           <span className="news__block-tag">{tag}</span>
         </div>

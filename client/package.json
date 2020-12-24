@@ -9,7 +9,6 @@
     "aos": "^2.3.4",
     "axios": "^0.21.0",
     "emailjs-com": "^2.6.4",
-    "history": "^5.0.0",
     "html-react-parser": "^0.14.3",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
@@ -20,8 +19,6 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
-    "react-tag-autocomplete": "^6.1.0",
-    "react-tag-input": "^6.5.2",
     "react-tagsinput": "^3.19.0",
     "swiper": "^6.3.5",
     "web-vitals": "^0.2.4"
