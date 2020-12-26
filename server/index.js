@@ -40,10 +40,12 @@ app.post("/insert", (req, res) => {
   const title = req.body.title;
   const text = req.body.text;
   const img = req.body.img;
-  const tag = req.body.tag;
+  const tags = req.body.tags;
 
-  const sqlInsert = "insert into news(title,text,img,tag)values(?,?,?,?)";
-  db.query(sqlInsert, [title, text, img, tag], (err, result) => {
+  console.log(tags)
+
+  const sqlInsert = "insert into news(title,text,img,tags)values(?,?,?,?)";
+  db.query(sqlInsert, [title, text, img, tags], (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -59,12 +61,12 @@ app.put("/update/:id", (req, res) => {
   const title = req.body.title;
   const text = req.body.text;
   const img = req.body.img;
-  const tag = req.body.tag;
+  const tags = req.body.tags;
 
   console.log(tag);
 
-  const sqlUpdate = "update news set title=?,text=?,img=?,tag=? where id=?";
-  db.query(sqlUpdate, [title, text, img, tag, id], (err, result) => {
+  const sqlUpdate = "update news set title=?,text=?,img=?,tags=? where id=?";
+  db.query(sqlUpdate, [title, text, img, tags, id], (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -89,10 +91,10 @@ app.delete("/delete/:id", (req, res) => {
 //category
 
 app.get("/category/:name", (req, res) => {
-  const tag = req.params.name;
+  const tags = req.params.name;
   console.log(req.params);
 
-  db.query("select* from news where tag=? ", tag, (err, result) => {
+  db.query("select* from news where tags=? ", tags, (err, result) => {
     if (err) {
       console.log(err);
     } else {
