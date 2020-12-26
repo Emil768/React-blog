@@ -9,7 +9,7 @@ import parse from "html-react-parser";
 
 //
 
-function NewsBlock({ id, title, img, text, tag, date }) {
+function NewsBlock({ id, title, img, text, date ,tags}) {
   moment.locale("ru");
   const imgStyles = {
     backgroundImage: `url(${img}) `,
@@ -21,6 +21,8 @@ function NewsBlock({ id, title, img, text, tag, date }) {
     borderTopLeftRadius: "10px",
     borderTopRightRadius: "10px",
   };
+
+  const setTags = JSON.parse(tags);
 
   const resultText = text.match(/<p>(.*?)<\/p>/g).map(function (val) {
     return val.replace(/<\/?p>/g, "");
@@ -34,7 +36,12 @@ function NewsBlock({ id, title, img, text, tag, date }) {
         <div className="news__block-date">{moment(date).calendar()}</div>
         <h2 className="news__block-title" title={`${title}`}>{title}</h2>
         <div className="news__block-tags">
-          <span className="news__block-tag">{tag}</span>
+          {tags ? setTags.tags.map((tag,index)=>{
+            return <span key={index} className="news__block-tag">{tag}</span>
+          })
+          :
+          null
+         }
         </div>
         <div className="news__block-text">{parse(resultText[0])}</div>
         <Link to={`/news/${id}`} className="news__block-btn">

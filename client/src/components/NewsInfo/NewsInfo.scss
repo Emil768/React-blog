@@ -34,6 +34,11 @@
   }
   &__tag {
     color: #40b0ee;
+    margin-right: 3px;
+    
+    &:not(:last-child)::after{
+      content: ','; 
+    }
     &:hover {
       text-decoration: underline;
     }

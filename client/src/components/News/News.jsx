@@ -27,6 +27,8 @@ function News() {
       });
   }, []);
 
+  
+
   //dublicate tag
   const resultArray = [];
   news.forEach((item) => {
@@ -76,6 +78,7 @@ function News() {
             {news.length ? (
               filterNews.length ? (
                 currentsPosts.map((item, index) => {
+                 
                   return <NewsBlock {...item} key={index} />;
                 })
               ) : (

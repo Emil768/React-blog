@@ -21,13 +21,13 @@ function NewsInfo(props) {
   const [loading, setLoading] = useState(false);
   const [activePopup, setActivePopup] = useState(false);
   const [activeUpdate, setActiveUpdate] = useState(false);
+
   const handleOutsideClick = useCallback((event) => {
     const path = event.path;
     if (!path.includes(popupRef.current)) {
       setActivePopup(false);
     }
   }, []);
-
 
   useEffect(() => {
     setLoading(true);
@@ -42,9 +42,11 @@ function NewsInfo(props) {
     };
   }, [idNews, handleOutsideClick]);
 
-  const { id, title, text, img, tag, date } = newsInfo;
+  const { id, title, text, img, date,tags } = newsInfo;
   const popupRef = useRef();
 
+  const setTags = tags && JSON.parse(tags);
+  
   const handlerActivePopup = () => {
     setActivePopup(!activePopup);
   };
@@ -63,8 +65,6 @@ function NewsInfo(props) {
   const handlerUpdateNews = () => {
     setActiveUpdate(!activeUpdate);
   };
-
- 
 
   return (
     <section className="news-info page-section">
@@ -112,9 +112,16 @@ function NewsInfo(props) {
             </div>
             <div className="news-info__category">
               Категория:
-              <Link to={`/category/${tag}`} className="news-info__tag">
-                {tag}
-              </Link>
+              { tags?setTags.tags.map((tag,index)=>{
+                return(
+                  <Link to={`/category/${tag}`} className="news-info__tag" key={index}>
+                      {tag}
+                  </Link>
+                )
+              })
+              : 
+              null
+              }
             </div>
           </div>
           <div className="news-info__content">

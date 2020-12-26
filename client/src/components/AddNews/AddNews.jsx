@@ -26,7 +26,7 @@ function AddNews() {
           title: title,
           text: text,
           img: img,
-          tag: tags[0],
+          tags:JSON.stringify({"tags": [...tags]})
         })
         .then(() => alert("succesfully!"));
         e.target.reset();
@@ -35,6 +35,8 @@ function AddNews() {
       alert("Введите данные!");
     }
   };
+
+  console.log(...tags)
 
   const handleChange = (text) => {
     setText(text);

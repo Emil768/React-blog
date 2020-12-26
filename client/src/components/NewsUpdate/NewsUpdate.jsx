@@ -11,12 +11,12 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 //
 
-
 function NewsUpdate({ state, id, title, text, img, tag, setState }) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateText, setUpdateText] = useState("");
   const [updateImg, setUpdateImg] = useState("");
   const [updateTag, setUpdateTag] = useState([]);
+
   useEffect(() => {
     setUpdateTitle(title);
     setUpdateText(text);
@@ -36,7 +36,6 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
       tag: updateTag[0],
     });
   };
-
 
   const handlerChangeState = () => {
     setState(!state);
@@ -60,8 +59,8 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
     [{ size: ["small", false, "large", "huge"] }],
     ["link", "image", "video", "formula"],
   ];
+
   return (
-  
     <div className={state ? "news-update active" : "news-update"}>
       <div className="container">
         <div className="addNews__content">

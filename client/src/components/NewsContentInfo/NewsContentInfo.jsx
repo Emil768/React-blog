@@ -22,7 +22,7 @@ function NewsContentInfo({ data, setSearch, activeName }) {
               return (
                 <li
                   className={
-                    activeName === item.tag
+                    activeName === item.tags
                       ? "news__list-item active"
                       : "news__list-item"
                   }
