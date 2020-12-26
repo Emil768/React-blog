@@ -18,7 +18,8 @@ function AddNews() {
   const [img, setImg] = useState("");
   const [tags, setTags] = useState([]);
 
-  const addNewNews = () => {
+  const addNewNews = (e) => {
+    e.preventDefault();
     if (title.trim() !== "" || text.trim() !== "") {
       axios
         .post("http://localhost:3001/insert", {
@@ -28,6 +29,8 @@ function AddNews() {
           tag: tags[0],
         })
         .then(() => alert("succesfully!"));
+        e.target.reset();
+        
     } else {
       alert("Введите данные!");
     }
@@ -61,7 +64,7 @@ function AddNews() {
       <div className="container">
         <h1 className="addNews__title">Добавить новость</h1>
         <div className="addNews__content">
-          <form className="addNews__form" onSubmit={(e) => e.preventDefault()}>
+          <form className="addNews__form" onSubmit={addNewNews}>
             <input
               className="addNews__form-title"
               type="text"
@@ -75,6 +78,7 @@ function AddNews() {
               modules={{
                 toolbar: toolbarOptions,
               }}
+              
             />
             <TagsInput
               value={tags}
@@ -97,7 +101,7 @@ function AddNews() {
               placeholder="Введите ссылку на картинку"
               onChange={(e) => setImg(e.target.value)}
             />
-            <button className="addNews__form-btn" onClick={addNewNews}>
+            <button className="addNews__form-btn" type="submit">
               Добавить
             </button>
           </form>

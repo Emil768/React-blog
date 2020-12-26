@@ -11,6 +11,7 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 //
 
+
 function NewsUpdate({ state, id, title, text, img, tag, setState }) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateText, setUpdateText] = useState("");
@@ -60,6 +61,7 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
     ["link", "image", "video", "formula"],
   ];
   return (
+  
     <div className={state ? "news-update active" : "news-update"}>
       <div className="container">
         <div className="addNews__content">

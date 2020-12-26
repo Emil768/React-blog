@@ -22,9 +22,10 @@ function NewsBlock({ id, title, img, text, tag, date }) {
     borderTopRightRadius: "10px",
   };
 
-  const resultText = text.match(/<p>(.*?)<\/p>/).map(function (val) {
+  const resultText = text.match(/<p>(.*?)<\/p>/g).map(function (val) {
     return val.replace(/<\/?p>/g, "");
   });
+
 
   return (
     <div className="news__block">
