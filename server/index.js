@@ -62,9 +62,7 @@ app.put("/update/:id", (req, res) => {
   const text = req.body.text;
   const img = req.body.img;
   const tags = req.body.tags;
-
-  console.log(tag);
-
+  
   const sqlUpdate = "update news set title=?,text=?,img=?,tags=? where id=?";
   db.query(sqlUpdate, [title, text, img, tags, id], (err, result) => {
     if (err) {
@@ -92,9 +90,9 @@ app.delete("/delete/:id", (req, res) => {
 
 app.get("/category/:name", (req, res) => {
   const tags = req.params.name;
-  console.log(req.params);
-
-  db.query("select* from news where tags=? ", tags, (err, result) => {
+  
+  const sqlSort = `select * FROM news WHERE JSON_CONTAINS(JSON_EXTRACT(tags,"$.tags"), '"${tags}"')`
+  db.query(sqlSort, (err, result) => {
     if (err) {
       console.log(err);
     } else {
