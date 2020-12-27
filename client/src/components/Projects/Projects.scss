@@ -15,35 +15,45 @@
         flex-wrap: wrap;
     }
     &__block {
-        flex: 0 0 50%;
         font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
         text-align: center;
         padding: 20px;
         margin-bottom: 40px;
         transition: all ease 0.3s;
-        // &:hover {
-        //     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-        // }
+        flex: 0 0 42%;
+     
+       &-mobile{
+           flex: 0 1 22%;
+       }
         &-img {
-            width: 460px;
+            width:100%;
             border-radius: 10px;
-            // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+           
             img {
                 max-width: 100%;
-               
                 border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
             }
         }
         &-title {
             margin-bottom: 20px;
-        }
-        &-content {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            flex-direction: column-reverse;
+            a{
+                margin-left: 10px;
+            }
         }
+        &-text{
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        &-content{
+            a{
+                display: table-header-group
+            }
+        }
+    
         &-link {
             display: inline-block;
             margin-right: 10px;
@@ -57,87 +67,39 @@
             }
         }
         &-info {
-            margin-bottom: 20px;
-           
+            margin-top: 20px;
+            text-align: left;
         }
     }
     &__mobile {
         &-img {
-            width: 300px;
+            width: 100%;
             img {
                 max-width: 100%;
             }
         }
     }
-    &__stack {
-        display: flex;
-        justify-content: center;
-        
-    }
     .stack {
-        img {
-            width: 50px;
-            height: 50px;
-            transition: all 0.2s ease-in-out;
-            &:hover {
-                transform: scale(1.5);
+        &__technologies{
+            &-list{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            &-item{
+                margin-right: 10px;
+                margin-bottom: 10px;
+                background-color:#d6f0ff ;
+                padding: 5px 10px;
+                border-radius: 3px;
+                &:last-child{
+                    margin-right: 0;
+                }
             }
         }
-        &__wrapper {
-            display: flex;
-        }
-        &__title {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        &__frontend {
-            margin-bottom: 20px;
-        }
-        &__backend {
-            margin-left: 20px;
-        }
     }
-    //slick
-    &__slider {
-        &-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            border: none;
-            outline: none;
-            padding: 0;
-            margin: 0;
-            z-index: 5;
-            cursor: pointer;
-        }
-        &-btnPrev {
-            left: -30px;
-        }
-        &-btnNext {
-            right: -30px;
-        }
-    }
+   
 }
 
-//swiper
-.swiper-container {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-container-horizontal>.swiper-pagination-bullets {
-    display: none;
-    bottom: -3px !important;
-    .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-//
 .tabs-wrapper {
     margin-bottom: 40px;
 }
@@ -180,49 +142,19 @@
     .projects {
         &__wrapper {
             width: 100%;
-        }
-        .swiper-button-prev,
-        .swiper-button-next {
-            display: none;
-        }
+        } 
     }
-    .swiper-button-disabled {
-        opacity: 0;
-        cursor: default;
-    }
-    .swiper-pagination-fraction,
-    .swiper-pagination-custom,
-    .swiper-container-horizontal>.swiper-pagination-bullets {
-        display: block;
-    }
+    
 }
 
 @media (max-width: 530px) {
     .projects {
         &__block {
-            width: 100%;
+            flex: 1 1 100%;
             &-img {
                 width: 100%;
             }
         }
-        &__mobile {
-            &-img {
-                width: 100%;
-            }
-        }
-    }
-}
-
-@media (max-width: 320px) {
-    .projects {
-        &__stack {
-            flex-direction: column;
-            justify-content: center;
-        }
-        .stack {
-            &__backend {
-                margin-left: 0;
-            }
-        }
+      
     }
 }
