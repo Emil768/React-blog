@@ -86,7 +86,7 @@ function AddNews() {
               value={tags}
               onChange={handleChangeTag}
               className="tags"
-              maxTags={6}
+              maxTags={3}
               focusedClassName="tags--focused"
               tagProps={{
                 className: "tag",

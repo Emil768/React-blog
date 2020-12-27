@@ -18,6 +18,8 @@ function News() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
 
+  const [activeMenu,setActiveMenu] = useState(true);
+
   useEffect(() => {
     axios
       .get("http://localhost:3001")
@@ -27,24 +29,18 @@ function News() {
       });
   }, []);
 
-  
+  const handlerActiveMenu = () =>{
+    setActiveMenu(!activeMenu)
+  }
 
-  //dublicate tag
-  const resultArray = [];
-  news.forEach((item) => {
-    if (
-      resultArray.find((object) => {
-        if (object.tag.toLowerCase() === item.tag.toLowerCase()) {
-          return true;
-        } else {
-          return false;
-        }
-      })
-    ) {
-    } else {
-      resultArray.push(item);
-    }
-  });
+  const fullTags = [];
+
+  news.forEach((item)=>{
+    const newsTags = JSON.parse(item.tags);
+    fullTags.push(...newsTags.tags);
+  })
+
+  const tags = [...new Set(fullTags)];
 
   const filterNews = news.filter((note) => {
     return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
@@ -89,7 +85,10 @@ function News() {
             )}
           </div>
           {news.length ? (
-            <NewsContentInfo data={resultArray} setSearch={setSearchNews} />
+            <NewsContentInfo data={tags} 
+            setSearch={setSearchNews} 
+            handlerActiveMenu={handlerActiveMenu}
+            stateActiveMenu = {activeMenu} />
           ) : null}
         </div>
         <Pagination

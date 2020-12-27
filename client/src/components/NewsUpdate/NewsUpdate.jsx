@@ -11,18 +11,19 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 //
 
-function NewsUpdate({ state, id, title, text, img, tag, setState }) {
+function NewsUpdate({ state, id, title, text, img,tags,setState }) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateText, setUpdateText] = useState("");
   const [updateImg, setUpdateImg] = useState("");
   const [updateTag, setUpdateTag] = useState([]);
-
+  
   useEffect(() => {
+    const newTag = tags && JSON.parse(tags);
     setUpdateTitle(title);
     setUpdateText(text);
     setUpdateImg(img);
-    setUpdateTag(state=>[...state,tag]);
-  }, [title, text, img, tag]);
+    setUpdateTag(state=>[...state,...newTag.tags]);
+  }, [title, text, img, tags]);
 
   const handlerChange = (newText) => {
     setUpdateText(newText);
@@ -33,14 +34,14 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
       title: updateTitle,
       text: updateText,
       img: updateImg,
-      tag: updateTag[0],
+      tags: JSON.stringify({"tags": [...updateTag]}),
     });
   };
 
   const handlerChangeState = () => {
     setState(!state);
   };
-  // const [tags, setTags] = useState([]);
+  
   const handleChangeTag = (tags) => {
     setUpdateTag(tags);
   };
@@ -100,7 +101,7 @@ function NewsUpdate({ state, id, title, text, img, tag, setState }) {
               value={updateTag}
               onChange={handleChangeTag}
               className="tags"
-              maxTags={6}
+              maxTags={3}
               focusedClassName="tags--focused"
               tagProps={{
                 className: "tag",

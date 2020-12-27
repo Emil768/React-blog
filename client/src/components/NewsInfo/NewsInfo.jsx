@@ -22,6 +22,8 @@ function NewsInfo(props) {
   const [activePopup, setActivePopup] = useState(false);
   const [activeUpdate, setActiveUpdate] = useState(false);
 
+  
+
   const handleOutsideClick = useCallback((event) => {
     const path = event.path;
     if (!path.includes(popupRef.current)) {

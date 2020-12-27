@@ -26,6 +26,7 @@
       }
       &:last-child {
         margin-right: 0;
+        margin-bottom: 0;
       }
       &.active {
         border-color: #40b0ee;
@@ -44,6 +45,19 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
+    &-btn{
+      position: absolute;
+      top: 21px;
+      right: 10px;
+      cursor: pointer;
+      svg{
+        // transform: rotate(-180deg);
+        &.active{
+          transform: rotate(180deg);
+        }
+      }
+    }
+
     &-blocks {
       display: flex;
       width: 60%;
@@ -61,6 +75,7 @@
     margin: 30px 0;
     padding: 20px;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+    position: relative;
   }
 }
 

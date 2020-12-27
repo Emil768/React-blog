@@ -134,12 +134,12 @@ function Projects() {
             {projects[activeTab].map((item, index) => {
               return (
                 <div className="projects__block" key={index}>
-                  <h1 className="projects__block-title">{item.title}</h1>
                   <div className="projects__block-content">
                     <div className="projects__block-info">
                       <div className="projects__stack stack">
                         {item.frontend ? (
                           <div className="stack__frontend">
+                             <h1 className="projects__block-title">{item.title}</h1>
                             <h3 className="stack__title">Frontend</h3>
                             <div className="stack__wrapper">
                               {item.frontend.map((item, index) => {
@@ -214,12 +214,15 @@ function Projects() {
                       <div
                         style={{
                           backgroundImage: `url("${item.img}")`,
-                          backgroundPosition: "top",
+                          backgroundPosition: "auto",
                           backgroundRepeat: "no-repeat",
-                          backgroundSize: "cover",
+                          backgroundSize: "auto",
                           width: "100%",
-                          height: "300px",
+                          height: "341px",
+                          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
+                          borderRadius:"10px"
                         }}
+                        
                       ></div>
                     </div>
                   </div>
