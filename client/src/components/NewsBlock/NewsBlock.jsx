@@ -9,7 +9,7 @@ import parse from "html-react-parser";
 
 //
 
-function NewsBlock({ id, title, img, text, date ,tags}) {
+function NewsBlock({ id, title, img, text, date, tags }) {
   moment.locale("ru");
   const imgStyles = {
     backgroundImage: `url(${img}) `,
@@ -28,20 +28,24 @@ function NewsBlock({ id, title, img, text, date ,tags}) {
     return val.replace(/<\/?p>/g, "");
   });
 
-
   return (
     <div className="news__block">
       <div className="news__block-img" style={imgStyles}></div>
       <div className="news__block-content">
         <div className="news__block-date">{moment(date).calendar()}</div>
-        <h2 className="news__block-title" title={`${title}`}>{title}</h2>
+        <h2 className="news__block-title" title={`${title}`}>
+          {title}
+        </h2>
         <div className="news__block-tags">
-          {tags ? setTags.tags.map((tag,index)=>{
-            return <span key={index} className="news__block-tag">{tag}</span>
-          })
-          :
-          null
-         }
+          {tags
+            ? setTags.tags.map((tag, index) => {
+                return (
+                  <span key={index} className="news__block-tag">
+                    {tag}
+                  </span>
+                );
+              })
+            : null}
         </div>
         <div className="news__block-text">{parse(resultText[0])}</div>
         <Link to={`/news/${id}`} className="news__block-btn">

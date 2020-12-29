@@ -15,10 +15,10 @@ function Contact() {
         "user_Yfo77tIkDhv8tMYDPezrp"
       )
       .then(
-        (result) => {
+        result => {
           console.log(result.text);
         },
-        (error) => {
+        error => {
           console.log(error.text);
         }
       );

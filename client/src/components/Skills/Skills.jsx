@@ -27,32 +27,35 @@ function Skills() {
   return (
     <section data-aos="fade-up" className="skills page-section">
       <div className="container">
-        <h1 className="skills__title">My skills</h1>
+        <h1 className="skills__title">Хто я?</h1>
         <div className="skills__content">
           <p className="skills__content-text">
-            I am a beginner front-end developer. I started my way in 2019 and
-            have been doing programming for a year now. During this time I got
-            acquainted with such technologies as:
+            Привет я начинающий фронтенд разработчик из Крыма.Спустя год
+            странствий и познания веб-разработки, я думаю что готов выполнять
+            проекты различной сложности
           </p>
-          <div className="skills__content-block skills__content-frontend ">
-            <h3 className="skills__content-title">Frontend</h3>
-            {skillsTech.frontend.map((skill, index) => {
-              return <img src={skill} alt="" key={index} />;
-            })}
-          </div>
-          <div className="skills__content-block skills__content-backend">
-            <h3 className="skills__content-title">Backend</h3>
-            {skillsTech.backend.map((skill, index) => {
-              return <img src={skill} alt="" key={index} />;
-            })}
-          </div>
-          <div className="skills__content-block skills__content-other">
-            <h3 className="skills__content-title">Other skills</h3>
-            <img src={githubSvg} alt="" />
-          </div>
-          <div className="skills__content-studing">
-            <h3 className="skills__content-title">In studing</h3>
-            <img src={reactNativeSvg} alt="" />
+          <div className="skills__content-stack">
+            <h2 className="skills__content-title">Мой актуальный стек</h2>
+            <div className="skills__content-block skills__content-frontend ">
+              <h3 className="skills__content-title">Frontend</h3>
+              {skillsTech.frontend.map((skill, index) => {
+                return <img src={skill} alt="" key={index} />;
+              })}
+            </div>
+            <div className="skills__content-block skills__content-backend">
+              <h3 className="skills__content-title">Backend</h3>
+              {skillsTech.backend.map((skill, index) => {
+                return <img src={skill} alt="" key={index} />;
+              })}
+            </div>
+            <div className="skills__content-block skills__content-other">
+              <h3 className="skills__content-title">Other skills</h3>
+              <img src={githubSvg} alt="" />
+            </div>
+            <div className="skills__content-studing">
+              <h3 className="skills__content-title">In studing</h3>
+              <img src={reactNativeSvg} alt="" />
+            </div>
           </div>
         </div>
       </div>

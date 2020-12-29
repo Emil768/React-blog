@@ -2,8 +2,13 @@ import React from "react";
 import "./NewsContentInfo.scss";
 import AdminBlock from "../AdminBlock/AdminBlock";
 import { Link } from "react-router-dom";
-function NewsContentInfo({ data, setSearch,handlerActiveMenu,stateActiveMenu, activeName }) {
- 
+function NewsContentInfo({
+  data,
+  setSearch,
+  handlerActiveMenu,
+  stateActiveMenu,
+  activeName,
+}) {
   return (
     <div className="news__content-info">
       <div className="news__content-search news__search">
@@ -11,7 +16,7 @@ function NewsContentInfo({ data, setSearch,handlerActiveMenu,stateActiveMenu, ac
           className="news__search-input"
           type="text"
           placeholder="Search"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={e => setSearch(e.target.value)}
           maxLength={13}
         />
       </div>
@@ -19,7 +24,7 @@ function NewsContentInfo({ data, setSearch,handlerActiveMenu,stateActiveMenu, ac
         <h3>Категории</h3>
         <div className="news__content-btn" onClick={handlerActiveMenu}>
           <svg
-            className={stateActiveMenu?"active":null}
+            className={stateActiveMenu ? "active" : null}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -28,32 +33,27 @@ function NewsContentInfo({ data, setSearch,handlerActiveMenu,stateActiveMenu, ac
             <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
           </svg>
         </div>
-        {
-          stateActiveMenu?
+        {stateActiveMenu ? (
           <ul className="news__list mobile-oveflow">
-          {data &&
-           data.map((tag,index) => {
-              return (
-                <li
-                  className={
-                    activeName === tag
-                      ? "news__list-item active"
-                      : "news__list-item"
-                  }
-                  key={index}
-                >
-                  <Link
-                    to={`/category/${tag}`}
-                    className="news__list-link"
+            {data &&
+              data.map((tag, index) => {
+                return (
+                  <li
+                    className={
+                      activeName === tag
+                        ? "news__list-item active"
+                        : "news__list-item"
+                    }
+                    key={index}
                   >
-                    {tag}
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
-        :null
-        }
+                    <Link to={`/category/${tag}`} className="news__list-link">
+                      {tag}
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+        ) : null}
       </div>
       <AdminBlock />
     </div>

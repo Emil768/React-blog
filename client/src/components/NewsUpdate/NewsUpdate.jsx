@@ -11,21 +11,21 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 //
 
-function NewsUpdate({ state, id, title, text, img,tags,setState }) {
+function NewsUpdate({ state, id, title, text, img, tags, setState }) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateText, setUpdateText] = useState("");
   const [updateImg, setUpdateImg] = useState("");
   const [updateTag, setUpdateTag] = useState([]);
-  
+
   useEffect(() => {
     const newTag = tags && JSON.parse(tags);
     setUpdateTitle(title);
     setUpdateText(text);
     setUpdateImg(img);
-    setUpdateTag(state=>[...state,...newTag.tags]);
+    setUpdateTag(state => [...state, ...newTag.tags]);
   }, [title, text, img, tags]);
 
-  const handlerChange = (newText) => {
+  const handlerChange = newText => {
     setUpdateText(newText);
   };
 
@@ -34,15 +34,15 @@ function NewsUpdate({ state, id, title, text, img,tags,setState }) {
       title: updateTitle,
       text: updateText,
       img: updateImg,
-      tags: JSON.stringify({"tags": [...updateTag]}),
+      tags: JSON.stringify({ tags: [...updateTag] }),
     });
   };
 
   const handlerChangeState = () => {
     setState(!state);
   };
-  
-  const handleChangeTag = (tags) => {
+
+  const handleChangeTag = tags => {
     setUpdateTag(tags);
   };
 
@@ -86,7 +86,7 @@ function NewsUpdate({ state, id, title, text, img,tags,setState }) {
               className="addNews__form-title"
               type="text"
               placeholder="Введите название"
-              onChange={(e) => setUpdateTitle(e.target.value)}
+              onChange={e => setUpdateTitle(e.target.value)}
               defaultValue={updateTitle}
             />
 
@@ -116,7 +116,7 @@ function NewsUpdate({ state, id, title, text, img,tags,setState }) {
               className="addNews__form-url"
               type="text"
               placeholder="Введите ссылку на картинку"
-              onChange={(e) => setUpdateImg(e.target.value)}
+              onChange={e => setUpdateImg(e.target.value)}
               defaultValue={updateImg}
             />
             <button className="addNews__form-btn" onClick={handlerUpdateNews}>

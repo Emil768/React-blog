@@ -13,7 +13,7 @@ function Category(props) {
   const [categoryName, setCategoryName] = useState([]);
   const [searchNews, setSearchNews] = useState("");
 
-  const [activeMenu,setActiveMenu] = useState(true)
+  const [activeMenu, setActiveMenu] = useState(true);
 
   useEffect(() => {
     axios
@@ -29,24 +29,22 @@ function Category(props) {
       );
   }, [category]);
 
-
-  const handlerActiveMenu = () =>{
-    setActiveMenu(!activeMenu)
-  }
+  const handlerActiveMenu = () => {
+    setActiveMenu(!activeMenu);
+  };
 
   const fullTags = [];
 
-  news.forEach((item)=>{
+  news.forEach(item => {
     const newsTags = JSON.parse(item.tags);
     fullTags.push(...newsTags.tags);
-  })
+  });
 
   const tags = [...new Set(fullTags)];
 
-  const filterNews = categoryName.filter((note) => {
+  const filterNews = categoryName.filter(note => {
     return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
   });
-
 
   return (
     <section className="category page-section">
@@ -76,8 +74,8 @@ function Category(props) {
             data={tags}
             setSearch={setSearchNews}
             activeName={category}
-            handlerActiveMenu={handlerActiveMenu} 
-            stateActiveMenu = {activeMenu}
+            handlerActiveMenu={handlerActiveMenu}
+            stateActiveMenu={activeMenu}
           />
         </div>
       </div>

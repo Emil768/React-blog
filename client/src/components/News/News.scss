@@ -45,14 +45,14 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    &-btn{
+    &-btn {
       position: absolute;
       top: 21px;
       right: 10px;
       cursor: pointer;
-      svg{
+      svg {
         // transform: rotate(-180deg);
-        &.active{
+        &.active {
           transform: rotate(180deg);
         }
       }

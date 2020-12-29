@@ -22,9 +22,7 @@ function NewsInfo(props) {
   const [activePopup, setActivePopup] = useState(false);
   const [activeUpdate, setActiveUpdate] = useState(false);
 
-  
-
-  const handleOutsideClick = useCallback((event) => {
+  const handleOutsideClick = useCallback(event => {
     const path = event.path;
     if (!path.includes(popupRef.current)) {
       setActivePopup(false);
@@ -35,7 +33,7 @@ function NewsInfo(props) {
     setLoading(true);
     axios
       .get(`http://localhost:3001`)
-      .then((res) => setNewsInfo(res.data.find((item) => item.id == idNews)))
+      .then(res => setNewsInfo(res.data.find(item => item.id == idNews)))
       .then(() => setLoading(false));
 
     document.body.addEventListener("click", handleOutsideClick);
@@ -44,11 +42,11 @@ function NewsInfo(props) {
     };
   }, [idNews, handleOutsideClick]);
 
-  const { id, title, text, img, date,tags } = newsInfo;
+  const { id, title, text, img, date, tags } = newsInfo;
   const popupRef = useRef();
 
   const setTags = tags && JSON.parse(tags);
-  
+
   const handlerActivePopup = () => {
     setActivePopup(!activePopup);
   };
@@ -114,16 +112,19 @@ function NewsInfo(props) {
             </div>
             <div className="news-info__category">
               Категория:
-              { tags?setTags.tags.map((tag,index)=>{
-                return(
-                  <Link to={`/category/${tag}`} className="news-info__tag" key={index}>
-                      {tag}
-                  </Link>
-                )
-              })
-              : 
-              null
-              }
+              {tags
+                ? setTags.tags.map((tag, index) => {
+                    return (
+                      <Link
+                        to={`/category/${tag}`}
+                        className="news-info__tag"
+                        key={index}
+                      >
+                        {tag}
+                      </Link>
+                    );
+                  })
+                : null}
             </div>
           </div>
           <div className="news-info__content">

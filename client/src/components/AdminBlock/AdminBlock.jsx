@@ -16,7 +16,7 @@ function AdminBlock() {
         .post("http://localhost:3001/password", {
           password: password,
         })
-        .then((res) => setDbPassword(res.data));
+        .then(res => setDbPassword(res.data));
     }
   };
 
@@ -31,7 +31,7 @@ function AdminBlock() {
         <h3 className="admin__title">
           Admin mode:{localStorage.length ? "on" : "off"}
         </h3>
-        <form className="admin__form" onSubmit={(e) => e.preventDefault()}>
+        <form className="admin__form" onSubmit={e => e.preventDefault()}>
           <input
             type="password"
             name="password"
@@ -41,7 +41,7 @@ function AdminBlock() {
             }
             placeholder="Password"
             maxLength={30}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
           <button className="admin__btn" onClick={handlerGetAdmin}>
             {localStorage.length ? "Выйти" : "Войти"}

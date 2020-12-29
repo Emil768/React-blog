@@ -18,7 +18,7 @@ function AddNews() {
   const [img, setImg] = useState("");
   const [tags, setTags] = useState([]);
 
-  const addNewNews = (e) => {
+  const addNewNews = e => {
     e.preventDefault();
     if (title.trim() !== "" || text.trim() !== "") {
       axios
@@ -26,22 +26,21 @@ function AddNews() {
           title: title,
           text: text,
           img: img,
-          tags:JSON.stringify({"tags": [...tags]})
+          tags: JSON.stringify({ tags: [...tags] }),
         })
         .then(() => alert("succesfully!"));
-        e.target.reset();
-        
+      e.target.reset();
     } else {
       alert("Введите данные!");
     }
   };
 
-  console.log(...tags)
+  console.log(...tags);
 
-  const handleChange = (text) => {
+  const handleChange = text => {
     setText(text);
   };
-  const handleChangeTag = (tags) => {
+  const handleChangeTag = tags => {
     setTags(tags);
   };
 
@@ -60,7 +59,6 @@ function AddNews() {
     ["link", "image", "video", "formula"],
   ];
 
-
   return (
     <section className="addNews page-section">
       <div className="container">
@@ -71,7 +69,7 @@ function AddNews() {
               className="addNews__form-title"
               type="text"
               placeholder="Введите название"
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={e => setTitle(e.target.value)}
             />
 
             <ReactQuill
@@ -80,7 +78,6 @@ function AddNews() {
               modules={{
                 toolbar: toolbarOptions,
               }}
-              
             />
             <TagsInput
               value={tags}
@@ -101,7 +98,7 @@ function AddNews() {
               className="addNews__form-url"
               type="text"
               placeholder="Введите ссылку на картинку"
-              onChange={(e) => setImg(e.target.value)}
+              onChange={e => setImg(e.target.value)}
             />
             <button className="addNews__form-btn" type="submit">
               Добавить
