@@ -1,32 +1,32 @@
 .pagination {
-    width: 100%;
-    margin-top: 40px;
-    &-list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__item {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 22px;
-            margin-right: 8px;
-            font-family: "Barlow", sans-serif;
-            border: 2px solid transparent;
-            padding: 6px 14px;
-            &:last-child {
-                margin-right: 0;
-            }
-            a {
-                display: block;
-                color: #c4c4c4;
-            }
-            &.active {
-                border: 2px solid #1c62cd;
-                a {
-                    font-weight: 600;
-                    color: #1c62cd;
-                }
-            }
+  width: 100%;
+  margin-bottom: 40px;
+  &-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__item {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      margin-right: 8px;
+      font-family: "Barlow", sans-serif;
+      border: 2px solid transparent;
+      padding: 6px 14px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        display: block;
+        color: #c4c4c4;
+      }
+      &.active {
+        border: 2px solid #1c62cd;
+        a {
+          font-weight: 600;
+          color: #1c62cd;
         }
+      }
     }
+  }
 }

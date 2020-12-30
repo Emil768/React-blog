@@ -20,19 +20,15 @@ function AddNews() {
 
   const addNewNews = e => {
     e.preventDefault();
-    if (title.trim() !== "" || text.trim() !== "") {
-      axios
-        .post("http://localhost:3001/insert", {
-          title: title,
-          text: text,
-          img: img,
-          tags: JSON.stringify({ tags: [...tags] }),
-        })
-        .then(() => alert("succesfully!"));
-      e.target.reset();
-    } else {
-      alert("Введите данные!");
-    }
+    axios
+      .post("http://localhost:3001/insert", {
+        title: title,
+        text: text,
+        img: img,
+        tags: JSON.stringify({ tags: [...tags] }),
+      })
+      .then(() => alert("succesfully!"));
+    e.target.reset();
   };
 
   console.log(...tags);
@@ -70,6 +66,7 @@ function AddNews() {
               type="text"
               placeholder="Введите название"
               onChange={e => setTitle(e.target.value)}
+              required
             />
 
             <ReactQuill
@@ -99,6 +96,7 @@ function AddNews() {
               type="text"
               placeholder="Введите ссылку на картинку"
               onChange={e => setImg(e.target.value)}
+              required
             />
             <button className="addNews__form-btn" type="submit">
               Добавить

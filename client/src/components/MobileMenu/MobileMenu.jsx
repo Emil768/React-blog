@@ -35,7 +35,7 @@ function MobileMenu({ state, setState }) {
           activeClassName="menu__link--active"
           onClick={hideMobileMenu}
         >
-          Обо мне
+          Портфолио
         </NavLink>
 
         <NavLink

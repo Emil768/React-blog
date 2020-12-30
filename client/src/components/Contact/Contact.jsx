@@ -28,7 +28,10 @@ function Contact() {
   return (
     <section className="contact page-section">
       <div className="container">
-        <h1 className="contact__title">Contact me</h1>
+        <h1 className="contact__title">Связь</h1>
+        <p className="contact__text">
+          Если появились какие-то вопросы,то я всегда рад их обсудить.
+        </p>
         <div className="contact__content">
           <form className="contact__form" onSubmit={sendEmail}>
             <input
@@ -38,6 +41,15 @@ function Contact() {
               name="name"
               required
             />
+
+            <input
+              className="contact__form-input"
+              type="text"
+              placeholder="Ваша фамилия"
+              name="surname"
+              required
+            />
+
             <input
               className="contact__form-input"
               type="email"
@@ -54,6 +66,7 @@ function Contact() {
               name="message"
               required
             ></textarea>
+
             <button className="contact__form-btn" type="submit">
               Отправить
             </button>

@@ -20,7 +20,7 @@ function NewsContentInfo({
           maxLength={13}
         />
       </div>
-      <div className="news-wrapper">
+      <div className="news__content-category">
         <h3>Категории</h3>
         <div className="news__content-btn" onClick={handlerActiveMenu}>
           <svg

@@ -44,7 +44,13 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
+    &-category {
+      border-radius: 10px;
+      margin: 30px 0;
+      padding: 20px;
+      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
     &-btn {
       position: absolute;
       top: 21px;
@@ -62,20 +68,12 @@
       display: flex;
       width: 60%;
       flex-wrap: wrap;
-      margin-bottom: 40px;
     }
     &-empty {
       align-items: center;
       width: 100%;
       min-height: 100vh;
     }
-  }
-  &-wrapper {
-    border-radius: 10px;
-    margin: 30px 0;
-    padding: 20px;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-    position: relative;
   }
 }
 

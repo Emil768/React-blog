@@ -1,5 +1,5 @@
 import React from "react";
-import emptyGif from "../../img/empty.gif";
+import emptyGif from "../../img/develop.gif";
 import quesGif from "../../img/ques.gif";
 import "./NewsEmpty.scss";
 

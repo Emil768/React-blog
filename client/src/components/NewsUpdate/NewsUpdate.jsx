@@ -91,7 +91,7 @@ function NewsUpdate({ state, id, title, text, img, tags, setState }) {
             />
 
             <ReactQuill
-              value={updateText || ""}
+              value={updateText}
               onChange={handlerChange}
               modules={{
                 toolbar: toolbarOptions,

@@ -74,7 +74,7 @@ function Header() {
               className="menu__link"
               activeClassName="menu__link--active"
             >
-              Обо мне
+              Портфолио
             </NavLink>
 
             <NavLink

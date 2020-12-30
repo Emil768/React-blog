@@ -37,7 +37,7 @@ function Projects() {
 
     {
       title: "Xiaomi-notes",
-      text: "Мини приложения целью которой было затестить новые технологии",
+      text: "Мини приложение,целью которой было затестить новые технологии",
       img: xiaomiNotes,
       technologies: ["Html", "Scss", "React", "Redux", "MySql", "Express"],
       github: "https://github.com/Zandess/Xiaomi-notes",
@@ -65,7 +65,7 @@ function Projects() {
   return (
     <section data-aos="fade-up" className="projects page-section">
       <div className="container">
-        <h1 className="projects__title">Projects</h1>
+        <h1 className="projects__title">Проекты</h1>
         <div className="projects__wrapper">
           <div className="tabs-wrapper">
             <ul className="tabs__list">

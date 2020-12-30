@@ -6,7 +6,9 @@ import axios from "axios";
 function AdminBlock() {
   const [password, setPassword] = useState("");
   const [dbPassword, setDbPassword] = useState("");
+
   const history = useHistory();
+
   const handlerGetAdmin = () => {
     if (localStorage.getItem("password") === "succes") {
       localStorage.removeItem("password");
