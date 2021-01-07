@@ -1,7 +1,8 @@
 import React from "react";
-
 import "./AboutBlock.scss";
+
 import codeBg from "../../img/giphy.gif";
+
 function AboutBlock() {
   return (
     <section className="about page-section">

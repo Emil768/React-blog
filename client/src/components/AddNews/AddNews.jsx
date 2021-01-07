@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import "./AddNews.scss";
 
 //components
@@ -8,6 +8,7 @@ import "react-tagsinput/react-tagsinput.css";
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useHistory } from "react-router-dom";
 
 //lib
 import axios from "axios";
@@ -18,6 +19,8 @@ function AddNews() {
   const [img, setImg] = useState("");
   const [tags, setTags] = useState([]);
 
+  const history = useHistory();
+
   const addNewNews = e => {
     e.preventDefault();
     axios
@@ -27,21 +30,28 @@ function AddNews() {
         img: img,
         tags: JSON.stringify({ tags: [...tags] }),
       })
-      .then(() => alert("succesfully!"));
-    e.target.reset();
+      .then(() => alert("succesfully!"))
+      .then(() => history.go(0));
   };
 
-  console.log(...tags);
-
-  const handleChange = text => {
-    setText(text);
+  const handlerChangeTitle = e => {
+    setTitle(e.target.value);
   };
-  const handleChangeTag = tags => {
+
+  const handlerChangeText = newText => {
+    setText(newText);
+  };
+
+  const handlerChangeTags = tags => {
     setTags(tags);
   };
 
+  const handlerChangeImg = e => {
+    setImg(e.target.value);
+  };
+
   const toolbarOptions = [
-    ["bold", "italic", "underline", "strike"], // toggled buttons
+    ["bold", "italic", "underline", "strike"],
     ["blockquote", "code-block"],
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
     [{ list: "ordered" }, { list: "bullet" }],
@@ -65,20 +75,20 @@ function AddNews() {
               className="addNews__form-title"
               type="text"
               placeholder="Введите название"
-              onChange={e => setTitle(e.target.value)}
+              onChange={handlerChangeTitle}
               required
             />
 
             <ReactQuill
               value={text}
-              onChange={handleChange}
+              onChange={handlerChangeText}
               modules={{
                 toolbar: toolbarOptions,
               }}
             />
             <TagsInput
               value={tags}
-              onChange={handleChangeTag}
+              onChange={handlerChangeTags}
               className="tags"
               maxTags={3}
               focusedClassName="tags--focused"
@@ -95,7 +105,7 @@ function AddNews() {
               className="addNews__form-url"
               type="text"
               placeholder="Введите ссылку на картинку"
-              onChange={e => setImg(e.target.value)}
+              onChange={handlerChangeImg}
               required
             />
             <button className="addNews__form-btn" type="submit">
@@ -108,4 +118,4 @@ function AddNews() {
   );
 }
 
-export default AddNews;
+export default memo(AddNews);

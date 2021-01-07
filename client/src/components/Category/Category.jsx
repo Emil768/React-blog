@@ -13,8 +13,6 @@ function Category(props) {
   const [categoryName, setCategoryName] = useState([]);
   const [searchNews, setSearchNews] = useState("");
 
-  const [activeMenu, setActiveMenu] = useState(true);
-
   useEffect(() => {
     axios
       .all([
@@ -28,10 +26,6 @@ function Category(props) {
         })
       );
   }, [category]);
-
-  const handlerActiveMenu = () => {
-    setActiveMenu(!activeMenu);
-  };
 
   const fullTags = [];
 
@@ -74,8 +68,6 @@ function Category(props) {
             data={tags}
             setSearch={setSearchNews}
             activeName={category}
-            handlerActiveMenu={handlerActiveMenu}
-            stateActiveMenu={activeMenu}
           />
         </div>
       </div>

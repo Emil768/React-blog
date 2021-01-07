@@ -11,6 +11,7 @@ import parse from "html-react-parser";
 
 function NewsBlock({ id, title, img, text, date, tags }) {
   moment.locale("ru");
+
   const imgStyles = {
     backgroundImage: `url(${img}) `,
     width: "100%",

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewsContentInfo.scss";
+
 import AdminBlock from "../AdminBlock/AdminBlock";
 import { Link } from "react-router-dom";
-function NewsContentInfo({
-  data,
-  setSearch,
-  handlerActiveMenu,
-  stateActiveMenu,
-  activeName,
-}) {
+
+function NewsContentInfo({ data, setSearch, activeName }) {
+  const [activeMenu, setActiveMenu] = useState(true);
+  const handlerActiveMenu = () => {
+    setActiveMenu(!activeMenu);
+  };
+
+  const handlerSearchNews = e => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div className="news__content-info">
       <div className="news__content-search news__search">
@@ -16,7 +21,7 @@ function NewsContentInfo({
           className="news__search-input"
           type="text"
           placeholder="Search"
-          onChange={e => setSearch(e.target.value)}
+          onChange={handlerSearchNews}
           maxLength={13}
         />
       </div>
@@ -24,7 +29,7 @@ function NewsContentInfo({
         <h3>Категории</h3>
         <div className="news__content-btn" onClick={handlerActiveMenu}>
           <svg
-            className={stateActiveMenu ? "active" : null}
+            className={activeMenu ? "active" : null}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -33,7 +38,7 @@ function NewsContentInfo({
             <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
           </svg>
         </div>
-        {stateActiveMenu ? (
+        {activeMenu ? (
           <ul className="news__list mobile-oveflow">
             {data &&
               data.map((tag, index) => {

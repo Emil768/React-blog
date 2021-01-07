@@ -18,8 +18,6 @@ function News() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
 
-  const [activeMenu, setActiveMenu] = useState(true);
-
   useEffect(() => {
     axios
       .get("http://localhost:3001")
@@ -28,10 +26,6 @@ function News() {
         console.log(err);
       });
   }, []);
-
-  const handlerActiveMenu = () => {
-    setActiveMenu(!activeMenu);
-  };
 
   const fullTags = [];
 
@@ -85,12 +79,7 @@ function News() {
               )}
             </div>
             {news.length ? (
-              <NewsContentInfo
-                data={tags}
-                setSearch={setSearchNews}
-                handlerActiveMenu={handlerActiveMenu}
-                stateActiveMenu={activeMenu}
-              />
+              <NewsContentInfo data={tags} setSearch={setSearchNews} />
             ) : null}
           </div>
         </div>

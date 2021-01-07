@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import "./NewsUpdate.scss";
 
 //components
@@ -9,24 +9,39 @@ import "react-quill/dist/quill.snow.css";
 
 //lib
 import axios from "axios";
-//
 
-function NewsUpdate({ state, id, title, text, img, tags, setState }) {
+function NewsUpdate({ state, setState, id, title, text, img, tags }) {
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateText, setUpdateText] = useState("");
   const [updateImg, setUpdateImg] = useState("");
-  const [updateTag, setUpdateTag] = useState([]);
+  const [updateTags, setUpdateTags] = useState([]);
 
   useEffect(() => {
     const newTag = tags && JSON.parse(tags);
     setUpdateTitle(title);
     setUpdateText(text);
     setUpdateImg(img);
-    setUpdateTag(state => [...state, ...newTag.tags]);
-  }, [title, text, img, tags]);
+    setUpdateTags(state => [...state, ...newTag.tags]);
+  }, [id, title, text, img, tags]);
 
-  const handlerChange = newText => {
+  const handlerCloseUpdateNews = () => {
+    setState(!state);
+  };
+
+  const handlerChangeTitle = e => {
+    setUpdateTitle(e.target.value);
+  };
+
+  const handlerChangeText = newText => {
     setUpdateText(newText);
+  };
+
+  const handlerChangeTags = tags => {
+    setUpdateTags(tags);
+  };
+
+  const handlerChangeImg = e => {
+    setUpdateImg(e.target.value);
   };
 
   const handlerUpdateNews = () => {
@@ -34,16 +49,8 @@ function NewsUpdate({ state, id, title, text, img, tags, setState }) {
       title: updateTitle,
       text: updateText,
       img: updateImg,
-      tags: JSON.stringify({ tags: [...updateTag] }),
+      tags: JSON.stringify({ tags: [...updateTags] }),
     });
-  };
-
-  const handlerChangeState = () => {
-    setState(!state);
-  };
-
-  const handleChangeTag = tags => {
-    setUpdateTag(tags);
   };
 
   const toolbarOptions = [
@@ -65,7 +72,7 @@ function NewsUpdate({ state, id, title, text, img, tags, setState }) {
     <div className={state ? "news-update active" : "news-update"}>
       <div className="container">
         <div className="addNews__content">
-          <div className="news-update__close" onClick={handlerChangeState}>
+          <div className="news-update__close" onClick={handlerCloseUpdateNews}>
             <svg
               width="16"
               height="16"
@@ -86,20 +93,20 @@ function NewsUpdate({ state, id, title, text, img, tags, setState }) {
               className="addNews__form-title"
               type="text"
               placeholder="Введите название"
-              onChange={e => setUpdateTitle(e.target.value)}
+              onChange={handlerChangeTitle}
               defaultValue={updateTitle}
             />
 
             <ReactQuill
               value={updateText}
-              onChange={handlerChange}
+              onChange={handlerChangeText}
               modules={{
                 toolbar: toolbarOptions,
               }}
             />
             <TagsInput
-              value={updateTag}
-              onChange={handleChangeTag}
+              value={updateTags}
+              onChange={handlerChangeTags}
               className="tags"
               maxTags={3}
               focusedClassName="tags--focused"
@@ -116,7 +123,7 @@ function NewsUpdate({ state, id, title, text, img, tags, setState }) {
               className="addNews__form-url"
               type="text"
               placeholder="Введите ссылку на картинку"
-              onChange={e => setUpdateImg(e.target.value)}
+              onChange={handlerChangeImg}
               defaultValue={updateImg}
             />
             <button className="addNews__form-btn" onClick={handlerUpdateNews}>
@@ -129,4 +136,4 @@ function NewsUpdate({ state, id, title, text, img, tags, setState }) {
   );
 }
 
-export default NewsUpdate;
+export default memo(NewsUpdate);
