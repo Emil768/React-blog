@@ -40,7 +40,6 @@ function News() {
     return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
   });
 
-  //Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentsPosts = filterNews.slice(indexOfFirstPost, indexOfLastPost);

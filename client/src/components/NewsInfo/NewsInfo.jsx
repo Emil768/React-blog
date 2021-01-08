@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback, memo } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./NewsInfo.scss";
 //components
