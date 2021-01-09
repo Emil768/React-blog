@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import "./NewsInfo.scss";
 //components
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
-import NewsUpdate from "../NewsUpdate/NewsUpdate";
 import NewsEmpty from "../NewsEmpty/NewsEmpty";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 //
 //lib
@@ -30,7 +29,7 @@ function NewsInfo(props) {
       .then(() => setLoading(false));
   }, [idNews]);
 
-  const { id, title, text, img, date, tags } = newsInfo;
+  const { title, text, img, date, tags } = newsInfo;
   const setTags = tags && JSON.parse(tags);
 
   return (
