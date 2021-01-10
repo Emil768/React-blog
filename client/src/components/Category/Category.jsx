@@ -17,7 +17,7 @@ function Category(props) {
     axios
       .all([
         axios.get(`http://localhost:3001/category/${category}`),
-        axios.get("http://localhost:3001"),
+        axios.get("http://localhost:3001/news"),
       ])
       .then(
         axios.spread((data1, data2) => {

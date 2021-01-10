@@ -20,7 +20,7 @@ function News() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001")
+      .get("http://localhost:3001/news")
       .then(res => setNews(res.data))
       .catch(err => {
         console.log(err);
