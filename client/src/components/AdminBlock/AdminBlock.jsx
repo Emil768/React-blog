@@ -15,7 +15,7 @@ function AdminBlock() {
       history.go(0);
     } else {
       axios
-        .post("http://localhost:3001/password", {
+        .post("https://react-blog-prj.herokuapp.com/password", {
           password: password,
         })
         .then(res => setDbPassword(res.data));
