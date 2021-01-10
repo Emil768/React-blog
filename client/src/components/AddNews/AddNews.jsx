@@ -24,7 +24,7 @@ function AddNews() {
   const addNewNews = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/insert", {
+      .post("https://react-blog-prj.herokuapp.com/insert", {
         title: title,
         text: text,
         img: img,

@@ -11,10 +11,11 @@ app.use(express.json());
 const PORT = 3001;
 
 const db = mysql.createPool({
-  host: "localhost",
-  database: "blog",
-  password: "emil22878",
-  user: "root",
+  host: "n2o93bb1bwmn0zle.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
+  database: "bhypyzw6v3kxg7if",
+  password: "ist926gwa9um9wy4",
+  user: "fhehj6lyl6eo5hz2",
+  port: 3306,
 });
 
 app.get("/news", (req, res) => {
@@ -44,7 +45,7 @@ app.post("/insert", (req, res) => {
   const img = req.body.img;
   const tags = req.body.tags;
 
-  console.log(tags)
+  console.log(tags);
 
   const sqlInsert = "insert into news(title,text,img,tags)values(?,?,?,?)";
   db.query(sqlInsert, [title, text, img, tags], (err, result) => {
@@ -64,7 +65,7 @@ app.put("/update/:id", (req, res) => {
   const text = req.body.text;
   const img = req.body.img;
   const tags = req.body.tags;
-  
+
   const sqlUpdate = "update news set title=?,text=?,img=?,tags=? where id=?";
   db.query(sqlUpdate, [title, text, img, tags, id], (err, result) => {
     if (err) {
@@ -92,8 +93,8 @@ app.delete("/delete/:id", (req, res) => {
 
 app.get("/category/:name", (req, res) => {
   const tags = req.params.name;
-  
-  const sqlSort = `select * FROM news WHERE JSON_CONTAINS(JSON_EXTRACT(tags,"$.tags"), '"${tags}"')`
+
+  const sqlSort = `select * FROM news WHERE JSON_CONTAINS(JSON_EXTRACT(tags,"$.tags"), '"${tags}"')`;
   db.query(sqlSort, (err, result) => {
     if (err) {
       console.log(err);
