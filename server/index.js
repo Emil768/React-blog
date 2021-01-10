@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 
+const PORT = 3001;
+
 const db = mysql.createPool({
   host: "localhost",
   database: "blog",
@@ -15,7 +17,7 @@ const db = mysql.createPool({
   user: "root",
 });
 
-app.get("/", (req, res) => {
+app.get("/news", (req, res) => {
   db.query("select* from news order by date desc", (err, result) => {
     if (err) {
       console.log(err);
@@ -101,6 +103,6 @@ app.get("/category/:name", (req, res) => {
   });
 });
 
-app.listen(3001, () => {
-  console.log("Server is starting from 3001 port...");
+app.listen(process.env.PORT || PORT, () => {
+  console.log(`Server is starting from ${PORT} port...`);
 });
