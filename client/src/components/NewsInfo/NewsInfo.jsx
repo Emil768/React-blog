@@ -24,7 +24,7 @@ function NewsInfo(props) {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3001/news`)
+      .get(`https://react-blog-prj.herokuapp.com/news`)
       .then(res => setNewsInfo(res.data.find(item => item.id == idNews)))
       .then(() => setLoading(false));
   }, [idNews]);

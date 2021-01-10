@@ -16,8 +16,8 @@ function Category(props) {
   useEffect(() => {
     axios
       .all([
-        axios.get(`http://localhost:3001/category/${category}`),
-        axios.get("http://localhost:3001/news"),
+        axios.get(`https://react-blog-prj.herokuapp.com/category/${category}`),
+        axios.get("https://react-blog-prj.herokuapp.com/news"),
       ])
       .then(
         axios.spread((data1, data2) => {

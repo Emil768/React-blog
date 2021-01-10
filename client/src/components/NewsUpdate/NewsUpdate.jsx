@@ -45,7 +45,7 @@ function NewsUpdate({ state, setState, id, title, text, img, tags }) {
   };
 
   const handlerUpdateNews = () => {
-    axios.put(`http://localhost:3001/update/${id}`, {
+    axios.put(`https://react-blog-prj.herokuapp.com/update/${id}`, {
       title: updateTitle,
       text: updateText,
       img: updateImg,

@@ -30,7 +30,7 @@ function NewsInfoPopup({ data, id }) {
   const handlerDeleteNews = () => {
     const confirm = window.confirm("Вы действительно хотите удалить новость?");
     if (confirm) {
-      axios.delete(`http://localhost:3001/delete/${id}`);
+      axios.delete(`https://react-blog-prj.herokuapp.com/delete/${id}`);
       history.push("/");
       history.go(0);
     }
