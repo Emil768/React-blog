@@ -48,7 +48,7 @@ function Footer() {
               </svg>
             </a>
             <a
-              href="https://github.com/Zandess"
+              href="https://github.com/EmilMurahas228"
               className="footer__social-link github-link"
               target="_blank"
               rel="noopener noreferrer"

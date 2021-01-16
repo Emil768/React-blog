@@ -32,7 +32,7 @@ function Projects() {
       img: internetShop,
       technologies: ["Html", "Scss", "React"],
       github: "https://github.com/Zandess/react-internet-shop",
-      link: "https://laughing-hypatia-17bc7a.netlify.app/",
+      link: "https://sleepy-euler-fcda5a.netlify.app/",
     },
 
     {
