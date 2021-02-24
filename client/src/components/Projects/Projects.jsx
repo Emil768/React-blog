@@ -5,6 +5,7 @@ import comixProject from "../../img/comix-project.png";
 import xiaomiNotes from "../../img/Xiaomi-Notes (1).png";
 import internetShop from "../../img/internet-shop.PNG";
 import collegeProject from "../../img/college-project.jpg";
+import animeLibraryProject from "../../img/anime-library.png";
 
 //lib
 import Aos from "aos";
@@ -34,7 +35,14 @@ function Projects() {
       github: "https://github.com/Zandess/react-internet-shop",
       link: "https://sleepy-euler-fcda5a.netlify.app/",
     },
-
+    {
+      title: "Anime/manga library",
+      text: "Работа с Jikan API.В приложении реализован поиск,фильтр и также сортировка аниме и манги имеющихся на сайте MyAnimeList",
+      img: animeLibraryProject,
+      technologies: ["Html", "Scss", "React", "Redux"],
+      github: "https://github.com/EmilMurahas228/Anime-library",
+      link: "https://ecstatic-lamarr-a02da9.netlify.app/",
+    },
     {
       title: "Xiaomi-notes",
       text: "Мини приложение,целью которой было затестить новые технологии",
@@ -43,6 +51,7 @@ function Projects() {
       github: "https://github.com/Zandess/Xiaomi-notes",
       link: "https://upbeat-bose-ddd651.netlify.app/",
     },
+  
   ];
 
   const reactNative = [
