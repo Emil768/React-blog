@@ -12,6 +12,7 @@ import * as moment from "moment/moment";
 import "moment/locale/ru";
 import axios from "axios";
 import NewsInfoPopup from "../NewsInfoPopup/NewsInfoPopup";
+import ButtonScroll from "../ButtonScroll/ButtonScroll";
 //
 
 function NewsInfo(props) {
@@ -25,7 +26,7 @@ function NewsInfo(props) {
     setLoading(true);
     axios
       .get(`https://react-blog-prj.herokuapp.com/news`)
-      .then(res => setNewsInfo(res.data.find(item => item.id == idNews)))
+      .then((res) => setNewsInfo(res.data.find((item) => item.id == idNews)))
       .then(() => setLoading(false));
   }, [idNews]);
 
@@ -72,6 +73,7 @@ function NewsInfo(props) {
           </div>
         </div>
       )}
+      <ButtonScroll />
     </section>
   );
 }

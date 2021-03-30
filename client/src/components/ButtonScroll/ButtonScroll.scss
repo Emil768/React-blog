@@ -1,0 +1,28 @@
+.button-scroll {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: all ease 0.3s;
+    transform: translateY(100px);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: 100;
+    opacity: 0;
+    &:hover {
+        cursor: pointer;
+        background-color: #40b0ee;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        svg {
+            fill: #ffff;
+        }
+    }
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
