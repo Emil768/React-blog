@@ -41,7 +41,7 @@ function NewsInfo(props) {
         <div className="container container--fullpost">
           <BreadCrumbs title={title} />
           <h1 className="news-info__title">{title}</h1>
-          {localStorage.length ? (
+          {localStorage.getItem("password") ? (
             <NewsInfoPopup data={newsInfo} id={idNews} />
           ) : null}
           <div className="news-info__top">
@@ -49,7 +49,7 @@ function NewsInfo(props) {
               Дата: {moment(date).format("L")}
             </div>
             <div className="news-info__category">
-              Категория:
+              <span>Категория:</span>
               {tags
                 ? setTags.tags.map((tag, index) => {
                     return (

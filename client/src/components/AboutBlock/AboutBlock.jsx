@@ -1,7 +1,7 @@
 import React from "react";
 import "./AboutBlock.scss";
 
-import codeBg from "../../img/giphy.gif";
+import codeBg from "../../img/giphy (1).gif";
 
 function AboutBlock() {
   return (
@@ -12,6 +12,7 @@ function AboutBlock() {
             <h1 className="about__title-name">Emil Murahas</h1>
             <p className="about__title-text">
               Hello, World! I’m a frontend developer.
+              <br /> I ❤️ JavaScript, ReactJS.
             </p>
           </div>
           <div className="about__img">

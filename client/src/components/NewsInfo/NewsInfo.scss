@@ -1,8 +1,8 @@
 .news-info {
+  flex: 1 0 auto;
   &.page-section {
     min-height: auto;
   }
-
   &__title {
     font-size: 36px;
     margin-bottom: 20px;
@@ -33,6 +33,11 @@
     margin-right: 20px;
     margin-bottom: 10px;
   }
+  &__category {
+    span {
+      margin-right: 5px;
+    }
+  }
   &__tag {
     color: #40b0ee;
     margin-right: 3px;
@@ -59,6 +64,10 @@
   }
   iframe {
     max-width: 100%;
+    margin: 20px 0;
+  }
+  pre {
+    white-space: break-spaces;
     margin: 20px 0;
   }
   br {

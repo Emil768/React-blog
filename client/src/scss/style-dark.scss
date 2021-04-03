@@ -1,0 +1,146 @@
+.dark-theme {
+  background-color: #000;
+  color: #fff;
+  p {
+    color: #fff;
+  }
+  a {
+    color: #fff;
+  }
+
+  input,
+  textarea {
+    transition: none;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    &::placeholder {
+      color: #fff;
+    }
+    &:focus {
+      &::placeholder {
+        color: #40b0ee;
+      }
+    }
+  }
+
+  button {
+    background-color: transparent;
+    color: #fff;
+  }
+
+  .header {
+    background-color: #000;
+    border-bottom: 1px solid #fff;
+    .logo {
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+    .menu {
+      &__link {
+        color: #fff;
+        &:hover {
+          color: #40b0ee;
+        }
+        &--active {
+          color: #40b0ee;
+        }
+      }
+    }
+  }
+  .mobile-menu {
+    &-line {
+      background: #fff;
+    }
+    &__overside {
+      // background-color: #000;
+    }
+  }
+  .mobile-menu__list {
+    background-color: #000;
+  }
+
+  .news {
+    &__content {
+      &-category {
+        border: 1px solid #fff;
+      }
+    }
+    &__block {
+      &-content {
+        border: 1px solid #fff;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top: none;
+      }
+    }
+  }
+  .news__menu {
+    &-item {
+      color: #000;
+    }
+  }
+  .news-info__btn {
+    svg {
+      fill: #fff;
+    }
+  }
+  .news-info__tag {
+    color: #40b0ee;
+  }
+  .projects {
+    .stack {
+      &__technologies {
+        &-item {
+          background-color: #1a8ed0;
+        }
+      }
+    }
+    &__block {
+      &-sourse {
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+  }
+  .news-update .addNews__content {
+    background-color: #000;
+  }
+  .news-update__close {
+    svg {
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+  .ql-toolbar.ql-snow {
+    background-color: #fff;
+  }
+  .addNews__form-btn {
+    border: 1px solid #fff;
+  }
+  .tags {
+    input {
+      border-bottom: none;
+    }
+    .tag {
+      background-color: #1a8ed0;
+    }
+  }
+  .button-scroll {
+    background-color: #fff;
+  }
+  .footer {
+    &__social {
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+}

@@ -1,11 +1,17 @@
 .news {
-  &__title {
-    font-size: 30px;
-    font-weight: 400;
+  flex: 1 0 auto;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 40px;
     &-empty {
       display: none;
     }
+  }
+  &__title {
+    font-size: 30px;
+    font-weight: 400;
   }
 
   &__content {

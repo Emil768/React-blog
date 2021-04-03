@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewsContentInfo.scss";
 
 import AdminBlock from "../AdminBlock/AdminBlock";

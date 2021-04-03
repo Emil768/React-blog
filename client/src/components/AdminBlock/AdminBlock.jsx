@@ -18,7 +18,7 @@ function AdminBlock() {
         .post("https://react-blog-prj.herokuapp.com/password", {
           password: password,
         })
-        .then(res => setDbPassword(res.data));
+        .then((res) => setDbPassword(res.data));
     }
   };
 
@@ -31,22 +31,24 @@ function AdminBlock() {
     <div className="admin">
       <div className="admin__content">
         <h3 className="admin__title">
-          Admin mode:{localStorage.length ? "on" : "off"}
+          Admin mode:{localStorage.getItem("password") ? "on" : "off"}
         </h3>
-        <form className="admin__form" onSubmit={e => e.preventDefault()}>
+        <form className="admin__form" onSubmit={(e) => e.preventDefault()}>
           <input
             type="password"
             name="password"
             autoComplete="on"
             className={
-              localStorage.length ? "admin__input hide" : "admin__input "
+              localStorage.getItem("password")
+                ? "admin__input hide"
+                : "admin__input "
             }
             placeholder="Password"
             maxLength={30}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button className="admin__btn" onClick={handlerGetAdmin}>
-            {localStorage.length ? "Выйти" : "Войти"}
+            {localStorage.getItem("password") ? "Выйти" : "Войти"}
           </button>
         </form>
       </div>

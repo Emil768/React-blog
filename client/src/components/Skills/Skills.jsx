@@ -4,7 +4,7 @@ import "./Skills.scss";
 import htmlSvg from "../../img/html-5.svg";
 import jsSvg from "../../img/iconfinder_187_Js_logo_logos_4373213.svg";
 import cssSvg from "../../img/iconfinder_badge-css-3_317756.svg";
-import githubSvg from "../../img/iconfinder_github_1220319.svg";
+import githubSvg from "../../img/github.png";
 import reactSvg from "../../img/iconfinder_react_1296845.svg";
 import sassSvg from "../../img/iconfinder_sass_1297046.svg";
 import nodeSvg from "../../img/iconfinder_node_3069651.svg";

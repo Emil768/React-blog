@@ -85,7 +85,7 @@ function Header() {
               Контакты
             </NavLink>
 
-            {localStorage.length ? (
+            {localStorage.getItem("password") ? (
               <NavLink
                 to="/addnews"
                 className="menu__link"

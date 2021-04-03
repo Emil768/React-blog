@@ -6,12 +6,15 @@ import "./Category.scss";
 import NewsBlock from "../NewsBlock/NewsBlock";
 import NewsEmpty from "../NewsEmpty/NewsEmpty";
 import NewsContentInfo from "../NewsContentInfo/NewsContentInfo";
+import DarkModeToggle from "react-dark-mode-toggle";
 //
 function Category(props) {
   const category = props.match.params.name;
   const [news, setNews] = useState([]);
   const [categoryName, setCategoryName] = useState([]);
   const [searchNews, setSearchNews] = useState("");
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     axios
@@ -29,21 +32,31 @@ function Category(props) {
 
   const fullTags = [];
 
-  news.forEach(item => {
+  news.forEach((item) => {
     const newsTags = JSON.parse(item.tags);
     fullTags.push(...newsTags.tags);
   });
 
   const tags = [...new Set(fullTags)];
 
-  const filterNews = categoryName.filter(note => {
+  const filterNews = categoryName.filter((note) => {
     return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
   });
 
   return (
     <section className="category page-section">
       <div className="container">
-        <h1 className="news__title news__title-tag">{category}</h1>
+        <div
+          className={news.length ? "news__top" : "news__top news__top-empty "}
+        >
+          <h1 className="news__title news__title-tag">{category}</h1>
+          <DarkModeToggle
+            onChange={setIsDarkMode}
+            checked={isDarkMode}
+            size={60}
+          />
+        </div>
+
         <div className="news__content">
           <div
             className={

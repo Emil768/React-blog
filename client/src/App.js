@@ -14,13 +14,18 @@ import Contact from "./components/Contact/Contact";
 
 //
 function App() {
+  if (localStorage.getItem("dark theme")) {
+    document.body.classList.add("dark-theme");
+  } else {
+    document.body.classList.remove("dark-theme");
+  }
   return (
     <div className="App">
       <Header />
       <Switch>
         <Route exact path="/" component={News} />
         <Route exact path="/about" component={About} />
-        {localStorage.length ? (
+        {localStorage.getItem("password") ? (
           <Route path="/addnews" component={AddNews} />
         ) : null}
         <Route path="/news/:id" component={NewsInfo} />

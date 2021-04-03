@@ -10,6 +10,8 @@ import Pagination from "../Pagination/Pagination";
 import axios from "axios";
 
 import NewsContentInfo from "../NewsContentInfo/NewsContentInfo";
+import DarkModeToggle from "react-dark-mode-toggle";
+
 //
 
 function News() {
@@ -18,25 +20,37 @@ function News() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
 
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("dark theme") ? true : false
+  );
+
+  if (isDarkMode) {
+    localStorage.setItem("dark theme", isDarkMode);
+    document.body.classList.add("dark-theme");
+  } else {
+    localStorage.removeItem("dark theme");
+    document.body.classList.remove("dark-theme");
+  }
+
   useEffect(() => {
     axios
       .get("https://react-blog-prj.herokuapp.com/news")
-      .then(res => setNews(res.data))
-      .catch(err => {
+      .then((res) => setNews(res.data))
+      .catch((err) => {
         console.log(err);
       });
   }, []);
 
   const fullTags = [];
 
-  news.forEach(item => {
+  news.forEach((item) => {
     const newsTags = JSON.parse(item.tags);
     fullTags.push(...newsTags.tags);
   });
 
   const tags = [...new Set(fullTags)];
 
-  const filterNews = news.filter(note => {
+  const filterNews = news.filter((note) => {
     return note.title.toLowerCase().indexOf(searchNews.toLowerCase()) !== -1;
   });
 
@@ -44,19 +58,22 @@ function News() {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentsPosts = filterNews.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <section className="news ">
       <div className="news-wrapper page-section">
         <div className="container">
-          <h1
-            className={
-              news.length ? "news__title" : "news__title news__title-empty "
-            }
+          <div
+            className={news.length ? "news__top" : "news__top news__top-empty "}
           >
-            Все новости
-          </h1>
+            <h1 className="news__title">Все новости</h1>
+            <DarkModeToggle
+              onChange={setIsDarkMode}
+              checked={isDarkMode}
+              size={60}
+            />
+          </div>
           <div className="news__content">
             <div
               className={
