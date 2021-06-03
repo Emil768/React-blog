@@ -1,94 +1,95 @@
 .about {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &__title {
-    font-family: PT Mono, PT Serif, serif, Helvetica, system-ui;
-    font-weight: 400;
-    width: 55%;
-    text-align: left;
-    &-name {
-      font-size: 102px;
-      margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__title {
+        font-family: PT Mono, PT Serif, serif, Helvetica, system-ui;
+        font-weight: 400;
+        width: 55%;
+        text-align: left;
+        &-name {
+            font-size: 102px;
+            margin-bottom: 20px;
+        }
+        &-text {
+            font-size: 30px;
+            color: #070106;
+            letter-spacing: -1px;
+            line-height: 60px;
+        }
+        &-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
-    &-text {
-      font-size: 30px;
-      color: #070106;
-      letter-spacing: -1px;
-      line-height: 60px;
+    &.page-section {
+        margin: 0;
     }
-    &-block {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-  &.page-section {
-    margin: 0;
-  }
 }
 
 @media (max-width: 1260px) {
-  .about {
-    &__title {
-      &-block {
-        width: 100%;
-      }
+    .about {
+        &__title {
+            &-block {
+                width: 100%;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: 975px) {
-  .about {
-    &__title {
-      text-align: center;
-      width: 100%;
-      &-text {
-        line-height: 35px;
-      }
-      &-name {
-        font-size: 80px;
-      }
-      &-block {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    .about {
+        &__title {
+            text-align: center;
+            width: 100%;
+            &-text {
+                line-height: 50px;
+            }
+            &-name {
+                font-size: 80px;
+            }
+            &-block {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        &__img {
+            width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+        &.page-section {
+            margin-top: 40px;
+        }
     }
-    &__img {
-      width: 100%;
-      img {
-        max-width: 100%;
-      }
-    }
-    &.page-section {
-      margin-top: 40px;
-    }
-  }
 }
 
 @media (max-width: 665px) {
-  .about {
-    &__title {
-      &-name {
-        font-size: 70px;
-      }
-      &-text {
-        font-size: 25px;
-      }
+    .about {
+        &__title {
+            &-name {
+                font-size: 70px;
+            }
+            &-text {
+                font-size: 25px;
+                line-height: 40px;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: 392px) {
-  .about {
-    &__title {
-      &-name {
-        font-size: 55px;
-      }
-      &-text {
-        font-size: 20px;
-      }
+    .about {
+        &__title {
+            &-name {
+                font-size: 55px;
+            }
+            &-text {
+                font-size: 20px;
+            }
+        }
     }
-  }
 }

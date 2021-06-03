@@ -1,101 +1,102 @@
 .contact {
-  flex: 1 0 auto;
-  text-align: center;
-  &.page-section {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-  }
-  &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 768px;
-  }
-  &__title {
-    font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
-    font-size: 35px;
-    margin-bottom: 30px;
-  }
-  &__text {
-    margin-bottom: 40px;
-  }
-  &__img {
-    width: 30%;
-    img {
-      max-width: 100%;
+    flex: 1 0 auto;
+    text-align: center;
+    &.page-section {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
     }
-  }
-  &__form {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    &-input {
-      margin-bottom: 20px;
-      width: 100%;
-      border-radius: 30px;
-      padding: 10px 20px;
-      outline: none;
-      border: 1px solid transparent;
-      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-      transition: all ease 0.3s;
-      &:nth-of-type(-n + 2) {
-        width: 49%;
-        margin-right: 15px;
-      }
-      &:nth-of-type(2n) {
-        margin-right: 0;
-      }
-      &:focus {
-        border-color: #40b0ee;
-      }
-      &::placeholder {
-        font-family: "Roboto", sans-serif;
-      }
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 768px;
     }
-    &-text {
-      margin-bottom: 20px;
-      width: 100%;
-      border-radius: 30px;
-      padding: 20px;
-      outline: none;
-      border: 1px solid transparent;
-      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-      transition: all ease 0.3s;
-      resize: none;
-      font-family: "Roboto", sans-serif;
-      &:focus {
-        border-color: #40b0ee;
-      }
-      &::placeholder {
-        font-family: "Roboto", sans-serif;
-      }
+    &__title {
+        font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
+        font-size: 35px;
+        margin-bottom: 30px;
     }
-    &-btn {
-      cursor: pointer;
-      border-radius: 30px;
-      outline: none;
-      border: none;
-      background-color: #fff;
-      border: 1px solid #eee;
-      padding: 10px 20px;
-      &:hover {
-        color: #40b0ee;
-        border-color: #40b0ee;
-      }
+    &__text {
+        margin-bottom: 40px;
     }
-  }
+    &__img {
+        width: 30%;
+        img {
+            max-width: 100%;
+        }
+    }
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        &-input {
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 30px;
+            padding: 10px 20px;
+            outline: none;
+            border: 1px solid transparent;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+            transition: all ease 0.3s;
+            &:nth-of-type(-n + 2) {
+                width: 49%;
+                margin-right: 15px;
+            }
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+            &:focus {
+                border-color: #40b0ee;
+            }
+            &::placeholder {
+                font-family: "Roboto", sans-serif;
+            }
+        }
+        &-text {
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 30px;
+            padding: 20px;
+            outline: none;
+            border: 1px solid transparent;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+            transition: all ease 0.3s;
+            resize: none;
+            font-family: "Roboto", sans-serif;
+            &:focus {
+                border-color: #40b0ee;
+            }
+            &::placeholder {
+                font-family: "Roboto", sans-serif;
+            }
+        }
+        &-btn {
+            cursor: pointer;
+            border-radius: 30px;
+            outline: none;
+            border: none;
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 10px 20px;
+            &:hover {
+                color: #40b0ee;
+                border-color: #40b0ee;
+            }
+        }
+    }
 }
 
 @media (max-width: 820px) {
-  .contact {
-    &__form {
-      &-input {
-        &:nth-of-type(-n + 2) {
-          width: 100%;
-          margin-right: 0px;
+    .contact {
+        &__form {
+            &-input {
+                &:nth-of-type(-n + 2) {
+                    width: 100%;
+                    margin-right: 0px;
+                }
+            }
         }
-      }
     }
-  }
 }

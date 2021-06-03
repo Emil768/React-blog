@@ -12,8 +12,6 @@ import axios from "axios";
 import NewsContentInfo from "../NewsContentInfo/NewsContentInfo";
 import DarkModeToggle from "react-dark-mode-toggle";
 
-//
-
 function News() {
   const [news, setNews] = useState([]);
   const [searchNews, setSearchNews] = useState("");
